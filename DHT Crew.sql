@@ -334,6 +334,35 @@ INSERT INTO `prenda_has_talle` VALUES (1,1,1,10),(2,1,2,5),(3,2,2,8),(4,3,3,3);
 UNLOCK TABLES;
 
 --
+-- Table structure for table `prenda_has_tipo`
+--
+
+DROP TABLE IF EXISTS `prenda_has_tipo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `prenda_has_tipo` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `idPrenda` int NOT NULL,
+  `idTipo` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idPrenda` (`idPrenda`),
+  KEY `idTipo` (`idTipo`),
+  CONSTRAINT `prenda_has_tipo_ibfk_1` FOREIGN KEY (`idPrenda`) REFERENCES `prenda` (`idPrenda`),
+  CONSTRAINT `prenda_has_tipo_ibfk_2` FOREIGN KEY (`idTipo`) REFERENCES `tipo` (`idTipo`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `prenda_has_tipo`
+--
+
+LOCK TABLES `prenda_has_tipo` WRITE;
+/*!40000 ALTER TABLE `prenda_has_tipo` DISABLE KEYS */;
+INSERT INTO `prenda_has_tipo` VALUES (1,1,1),(2,1,3),(3,2,2);
+/*!40000 ALTER TABLE `prenda_has_tipo` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `resenia`
 --
 
@@ -434,7 +463,7 @@ CREATE TABLE `tipo` (
 
 LOCK TABLES `tipo` WRITE;
 /*!40000 ALTER TABLE `tipo` DISABLE KEYS */;
-INSERT INTO `tipo` VALUES (1,'Camisa'),(2,'Pantalón'),(3,'Vestido'),(4,'Camisa'),(5,'Pantalón'),(6,'Vestido');
+INSERT INTO `tipo` VALUES (1,'Camisa'),(2,'Pantalón'),(3,'Vestido'),(4,'Short'),(5,'Remera'),(6,'Buzo');
 /*!40000 ALTER TABLE `tipo` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -447,4 +476,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-10-16 11:36:07
+-- Dump completed on 2025-10-17  9:36:32

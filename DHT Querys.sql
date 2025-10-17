@@ -18,6 +18,7 @@ call prendasMasVendidas ('2025-10-10','2025-10-12');
 -- Ejercicio 4 --
 create procedure devolucionPrenda (in idVenta int, in dniClient varchar())
 begin	
-	if ( idVenta exists in 
+	if ( select idCompra from compra where idCompra = idVenta ) then
+    
 
 
