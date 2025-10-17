@@ -2,16 +2,16 @@ package com.example.DHT.DTO;
 
 import java.time.LocalDate;
 
-public class ClienteDTO
+public class Cliente
 {
     private int dni ;
     private String nombre ;
     private String apellido ;
     private LocalDate fechaNacimiento ;
     private int puntos ;
-    private Genero genero ;
+    private GeneroUsuario genero ;
 
-    public ClienteDTO(int dni, String nombre, String apellido, LocalDate fechaNacimiento, int puntos, Genero genero) {
+    public Cliente(int dni, String nombre, String apellido, LocalDate fechaNacimiento, int puntos, GeneroUsuario genero) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -60,11 +60,11 @@ public class ClienteDTO
         this.puntos = puntos;
     }
 
-    public Genero getGenero() {
+    public GeneroUsuario getGenero() {
         return genero;
     }
 
-    public void setGenero(Genero genero) {
+    public void setGenero(GeneroUsuario genero) {
         this.genero = genero;
     }
 }

@@ -1,6 +1,6 @@
 package com.example.DHT.DTO;
 
-public enum Genero
+public enum GeneroUsuario
 {
     MASCULINO, FEMENINO, OTRO ;
 }
