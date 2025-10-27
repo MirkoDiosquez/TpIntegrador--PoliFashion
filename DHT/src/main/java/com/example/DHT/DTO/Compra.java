@@ -1,49 +1,44 @@
 package com.example.DHT.DTO;
-import java.time.LocalDate;
 
-public class Compra
-{
-    private int idCompra ;
-    private Cliente cliente ;
-    private LocalDate fehaHoraCompra ;
-    private int idMetodo ;
+import java.util.List;
 
-    public Compra(int idCompra, Cliente cliente, LocalDate fehaHoraCompra, int idMetodo) {
-        this.idCompra = idCompra;
-        this.cliente = cliente;
-        this.fehaHoraCompra = fehaHoraCompra;
+public class Compra{
+
+    private String clienteDni;
+    private Integer idMetodo;
+    private List<ItemCompra> items;
+
+    public Compra() {
+    }
+
+    public Compra(String clienteDni, Integer idMetodo, List<ItemCompra> items) {
+        this.clienteDni = clienteDni;
         this.idMetodo = idMetodo;
+        this.items = items;
     }
 
-    public int getIdCompra() {
-        return idCompra;
+    // Getters y Setters
+    public String getClienteDni() {
+        return clienteDni;
     }
 
-    public void setIdCompra(int idCompra) {
-        this.idCompra = idCompra;
+    public void setClienteDni(String clienteDni) {
+        this.clienteDni = clienteDni;
     }
 
-    public LocalDate getFehaHoraCompra() {
-        return fehaHoraCompra;
-    }
-
-    public void setFehaHoraCompra(LocalDate fehaHoraCompra) {
-        this.fehaHoraCompra = fehaHoraCompra;
-    }
-
-    public int getIdMetodo() {
+    public Integer getIdMetodo() {
         return idMetodo;
     }
 
-    public void setIdMetodo(int idMetodo) {
+    public void setIdMetodo(Integer idMetodo) {
         this.idMetodo = idMetodo;
     }
 
-    public Cliente getCliente() {
-        return cliente;
+    public List<ItemCompra> getItems() {
+        return items;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setItems(List<ItemCompra> items) {
+        this.items = items;
     }
 }
