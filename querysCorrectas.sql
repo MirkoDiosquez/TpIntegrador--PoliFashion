@@ -1,5 +1,13 @@
 /* EJERCICIO 3 */
-
+delimiter //
+create procedure prendasMasVendidas (in fechaInicio date, in fechaFin date)
+begin
+	declare cantVentas int default 0;
+    select count(*) into cantVentas from compra_detalle;
+	select prenda.idPrenda, sum(compra_detalle.cantidad * compra_detalle.precioUnitario) as ingresosGenerados, sum(compra_detalle.cantidad) as cantidadVendida from prenda join compra_detalle on prenda.idPrenda = compra_detalle.idPrenda join compra on compra_detalle.idCompra=compra.idCompra where datetimeCompra between fechaInicio and fechaFin group by prenda.idPrenda order by cantidadVendida desc;
+end //
+delimiter ;
+call prendasMasVendidas ('2025-10-10','2025-10-12');
 
 /* EJERCICIO 4 terminado */
 /* aca estamos devolviendo directamente toda la compra, no sabemos si hay q especificar una prenda para devolver */
@@ -104,5 +112,19 @@ begin
 		set puedeDevolver = true;
 	end if;
     return puedeDevolver;
+end //
+delimiter ;
+
+
+-- Ejercicio 5--
+delimiter //
+create procedure bonusClientes () 
+begin
+	declare fechaFin date;
+	declare fechaInicio date;
+    set fechaInicio = curdate();
+    set fechaFin = date_sub(curdate(), interval 7 day);
+    
+	update cliente set puntos = (puntos + (puntos * 0.05) ) where cliente.dni in ( select compra.clienteDni from compra where datetimeCompra between fechaInicio and fechaFin );
 end //
 delimiter ;
