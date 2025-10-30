@@ -1,24 +1,20 @@
 package com.example.DHT.DTO;
 
+import com.example.DHT.model.CompraDetalle;
+
 public class ItemDevolucion{
 
     private Integer idCompraDetalle;
     private Integer cantidadADevolver;
 
-    public ItemDevolucion() {
-    }
-
-    public ItemDevolucion(Integer idCompraDetalleOriginal, Integer cantidadADevolver) {
-        this.idCompraDetalle = idCompraDetalleOriginal;
-        this.cantidadADevolver = cantidadADevolver;
-    }
+    public ItemDevolucion() {   }
 
     public Integer getIdCompraDetalle() {
         return idCompraDetalle;
     }
 
-    public void setIdCompraDetalle(Integer idCompraDetalleOriginal) {
-        this.idCompraDetalle = idCompraDetalleOriginal;
+    public void setIdCompraDetalle(Integer idCompraDetalle) {
+        this.idCompraDetalle = idCompraDetalle;
     }
 
     public Integer getCantidadADevolver() {

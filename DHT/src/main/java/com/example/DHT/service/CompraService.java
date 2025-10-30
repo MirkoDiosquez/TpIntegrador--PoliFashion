@@ -41,10 +41,8 @@ public class CompraService {
             VariantePrenda variante = variantePrendaRepository.findById(itemDTO.getIdVariantePrenda())
                     .orElseThrow(() -> new RuntimeException("Prenda no encontrada"));
 
-            if (variante.getStock() < itemDTO.getCantidad()) {
-                throw new StockInsuficiente("Stock insuficiente para: " + variante.getPrenda().getNombre() +
-                        " Talle: " + variante.getTalle() +
-                        " Color: " + variante.getColor());
+                if (variante.getStock() < itemDTO.getCantidad()) {
+                throw new StockInsuficiente("Stock insuficiente para: " + variante.getPrenda().getNombre() + " Talle: " + variante.getTalle() + " Color: " + variante.getColor());
             }
 
             variante.setStock(variante.getStock() - itemDTO.getCantidad());

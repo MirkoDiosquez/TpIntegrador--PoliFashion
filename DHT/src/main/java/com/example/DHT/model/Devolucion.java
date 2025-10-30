@@ -24,16 +24,12 @@ public class Devolucion {
     @Column(name = "montoTotalReembolsado", nullable = false)
     private Double montoTotalReembolsado;
 
-    @OneToMany(mappedBy = "devolucion", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<DevolucionDetalle> detalles;
-
-    public Devolucion(Integer idDevolucion, Compra compra, Cliente cliente, LocalDateTime fechaHora, Double montoTotalReembolsado, List<DevolucionDetalle> detalles) {
+    public Devolucion(Integer idDevolucion, Compra compra, Cliente cliente, LocalDateTime fechaHora, Double montoTotalReembolsado) {
         this.idDevolucion = idDevolucion;
         this.compra = compra;
         this.cliente = cliente;
         this.fechaHora = fechaHora;
         this.montoTotalReembolsado = montoTotalReembolsado;
-        this.detalles = detalles;
     }
 
     public Devolucion() {
@@ -77,13 +73,5 @@ public class Devolucion {
 
     public void setMontoTotalReembolsado(Double montoTotalReembolsado) {
         this.montoTotalReembolsado = montoTotalReembolsado;
-    }
-
-    public List<DevolucionDetalle> getDetalles() {
-        return detalles;
-    }
-
-    public void setDetalles(List<DevolucionDetalle> detalles) {
-        this.detalles = detalles;
     }
 }

@@ -105,4 +105,8 @@ public class Marca {
     public void setCantidadVentasTotales(Integer cantidadVentasTotales) {
         this.cantidadVentasTotales = cantidadVentasTotales;
     }
+
+    public boolean puedeDevolver(){
+        return cantidadVentasTotales >= ventasMinimasParaDevolucion;
+    }
 }
