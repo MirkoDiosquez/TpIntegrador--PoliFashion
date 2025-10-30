@@ -25,8 +25,8 @@ public class CompraDetalle {
     @Column(name = "precioUnitario", nullable = false)
     private Double precioUnitario; // Precio "congelado"
 
-    @Column(name = "porcentajeComisionAlComprar", nullable = false)
-    private Float porcentajeComisionAlComprar; // Comisión "congelada"
+    @Column(name = "porcentajeComision", nullable = false)
+    private Float porcentajeComision;
 
     public CompraDetalle() {
     }
@@ -36,7 +36,7 @@ public class CompraDetalle {
         this.variantePrenda = variantePrenda;
         this.cantidad = cantidad;
         this.precioUnitario = precioUnitario;
-        this.porcentajeComisionAlComprar = porcentajeComisionAlComprar;
+        this.porcentajeComision = porcentajeComision;
     }
 
     public Integer getId() {
@@ -71,19 +71,19 @@ public class CompraDetalle {
         this.cantidad = cantidad;
     }
 
-    public Double getPrecioUnitarioAlComprar() {
+    public Double getPrecioUnitario() {
         return precioUnitario;
     }
 
-    public void setPrecioUnitarioAlComprar(Double precioUnitarioAlComprar) {
-        this.precioUnitario = precioUnitarioAlComprar;
+    public void setPrecioUnitario(Double precioUnitario) {
+        this.precioUnitario = precioUnitario;
     }
 
-    public Float getPorcentajeComisionAlComprar() {
-        return porcentajeComisionAlComprar;
+    public Float getPorcentajeComision() {
+        return porcentajeComision;
     }
 
-    public void setPorcentajeComisionAlComprar(Float porcentajeComisionAlComprar) {
-        this.porcentajeComisionAlComprar = porcentajeComisionAlComprar;
+    public void setPorcentajeComision(Float porcentajeComision) {
+        this.porcentajeComision = porcentajeComision;
     }
 }

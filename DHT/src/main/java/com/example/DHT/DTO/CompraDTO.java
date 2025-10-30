@@ -2,22 +2,21 @@ package com.example.DHT.DTO;
 
 import java.util.List;
 
-public class Compra{
+public class CompraDTO {
 
     private String clienteDni;
     private Integer idMetodo;
     private List<ItemCompra> items;
 
-    public Compra() {
+    public CompraDTO() {
     }
 
-    public Compra(String clienteDni, Integer idMetodo, List<ItemCompra> items) {
+    public CompraDTO(String clienteDni, Integer idMetodo, List<ItemCompra> items) {
         this.clienteDni = clienteDni;
         this.idMetodo = idMetodo;
         this.items = items;
     }
 
-    // Getters y Setters
     public String getClienteDni() {
         return clienteDni;
     }

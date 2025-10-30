@@ -1,5 +1,7 @@
 package com.example.DHT.DTO;
 
+import com.example.DHT.extras.enums.GeneroPrenda;
+
 import java.util.List;
 
 public class Prenda {

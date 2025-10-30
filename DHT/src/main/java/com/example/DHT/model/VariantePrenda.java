@@ -28,11 +28,9 @@ public class VariantePrenda {
     @Column(name = "stockMinimo")
     private Integer stockMinimo;
 
-    // Constructor vacío
     public VariantePrenda() {
     }
 
-    // Constructor con campos
     public VariantePrenda(Prenda prenda, Talle talle, String color, Integer stock, Integer stockMinimo) {
         this.prenda = prenda;
         this.talle = talle;
@@ -41,7 +39,6 @@ public class VariantePrenda {
         this.stockMinimo = stockMinimo;
     }
 
-    // Getters y Setters
     public Integer getId() {
         return id;
     }

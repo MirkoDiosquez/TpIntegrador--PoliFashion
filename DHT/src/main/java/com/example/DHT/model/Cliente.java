@@ -1,6 +1,6 @@
 package com.example.DHT.model;
 
-import com.example.DHT.DTO.GeneroUsuario;
+import com.example.DHT.extras.enums.GeneroUsuario;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 

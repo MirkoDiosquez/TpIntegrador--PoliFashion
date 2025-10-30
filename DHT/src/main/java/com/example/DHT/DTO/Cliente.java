@@ -1,5 +1,7 @@
 package com.example.DHT.DTO;
 
+import com.example.DHT.extras.enums.GeneroUsuario;
+
 import java.time.LocalDate;
 
 public class Cliente

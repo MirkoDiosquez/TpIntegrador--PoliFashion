@@ -1,4 +1,4 @@
-package com.example.DHT.DTO;
+package com.example.DHT.extras.enums;
 
 public enum GeneroPrenda {
     Masculino,

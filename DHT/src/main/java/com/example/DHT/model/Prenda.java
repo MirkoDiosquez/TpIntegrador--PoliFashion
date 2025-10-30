@@ -1,6 +1,6 @@
 package com.example.DHT.model;
 
-import com.example.DHT.DTO.GeneroPrenda; // O donde tengas tu enum
+import com.example.DHT.extras.enums.GeneroPrenda; // O donde tengas tu enum
 import jakarta.persistence.*;
 
 @Entity
