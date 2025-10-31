@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class DevolucionService {
@@ -21,6 +23,7 @@ public class DevolucionService {
     private CompraRepository compraRepository;
     @Autowired
     private CompraDetalleRepository compraDetalleRepository;
+
 
     @Transactional
     public Devolucion registrarDevolucion(DevolucionDTO devolucionRequest){
@@ -38,7 +41,9 @@ public class DevolucionService {
         devolucion.setCompra(compra);
         devolucion.setFechaHora(LocalDateTime.now());
 
-        Devolucion devolucionGuardada = devolucionRepository.save(devolucion);
+        Double montoTotalReembolso = 0.0;
+        List<DevolucionDetalle> detallesDevolucion = new ArrayList<>();
+
         for (ItemDevolucion itemDTO : devolucionRequest.getItems()) {
 
             Integer idCompraDetalle = itemDTO.getIdCompraDetalle();
@@ -51,6 +56,14 @@ public class DevolucionService {
                 throw new RuntimeException("El item (ID: " + idCompraDetalle + ") no pertenece a la compra " + compra.getIdCompra());
             }
 
+            if (cantidadADevolver <= 0) {
+                throw new RuntimeException("La cantidad a devolver debe ser mayor a 0");
+            }
+            if (cantidadADevolver > compraDetalle.getCantidad()) {
+                throw new RuntimeException("No podés devolver más unidades de las que compraste. Compraste: " + compraDetalle.getCantidad() + ", intentás devolver: " + cantidadADevolver);
+            }
+
+
             VariantePrenda variante = compraDetalle.getVariantePrenda();
             Marca marca = variante.getPrenda().getMarca();
 
@@ -60,8 +73,20 @@ public class DevolucionService {
 
             variante.setStock(variante.getStock() + cantidadADevolver);
             variantePrendaRepository.save(variante);
+
+            Double reembolsoItem = compraDetalle.getPrecioUnitario() * cantidadADevolver;
+            montoTotalReembolso += reembolsoItem;
+
+            DevolucionDetalle detalle = new DevolucionDetalle();
+            detalle.setDevolucion(devolucion);
+            detalle.setCompraDetalle(compraDetalle);
+            detalle.setCantidadDevuelta(cantidadADevolver);
+
+            detallesDevolucion.add(detalle);
         }
-        return devolucionGuardada ;
+        devolucion.setMontoTotalReembolsado(montoTotalReembolso);
+        devolucion.setDetalles(detallesDevolucion);
+        return devolucionRepository.save(devolucion);
     }
 
 }

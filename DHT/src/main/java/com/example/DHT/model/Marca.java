@@ -31,6 +31,8 @@ public class Marca {
     @Column(name = "cantidadVentasTotales")
     private Integer cantidadVentasTotales;
 
+    public Marca() {  }
+
     public Marca(Integer idMarca, String nombreMarca, Integer stockMinimoDefault, Float porcentajeComision, Float gananciasTotales, Integer puntos, Integer ventasMinimasParaDevolucion, Integer cantidadVentasTotales) {
         this.idMarca = idMarca;
         this.nombreMarca = nombreMarca;

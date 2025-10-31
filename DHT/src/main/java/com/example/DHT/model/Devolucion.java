@@ -12,9 +12,11 @@ public class Devolucion {
     @Column(name = "idDevolucion")
     private Integer idDevolucion;
 
+    @ManyToOne
     @JoinColumn(name = "idCompra", nullable = false)
     private Compra compra;
 
+    @ManyToOne
     @JoinColumn(name = "dniCliente", nullable = false)
     private Cliente cliente;
 
@@ -23,6 +25,9 @@ public class Devolucion {
 
     @Column(name = "montoTotalReembolsado", nullable = false)
     private Double montoTotalReembolsado;
+
+    @OneToMany(mappedBy = "devolucion", cascade = CascadeType.ALL)
+    private List<DevolucionDetalle> detalles;
 
     public Devolucion(Integer idDevolucion, Compra compra, Cliente cliente, LocalDateTime fechaHora, Double montoTotalReembolsado) {
         this.idDevolucion = idDevolucion;
@@ -73,5 +78,13 @@ public class Devolucion {
 
     public void setMontoTotalReembolsado(Double montoTotalReembolsado) {
         this.montoTotalReembolsado = montoTotalReembolsado;
+    }
+
+    public List<DevolucionDetalle> getDetalles() {
+        return detalles;
+    }
+
+    public void setDetalles(List<DevolucionDetalle> detalles) {
+        this.detalles = detalles;
     }
 }
