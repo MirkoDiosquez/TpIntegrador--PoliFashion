@@ -14,8 +14,7 @@ public class MetodoPago {
     @Column(name = "nombreMetodo", nullable = false, length = 50)
     private String nombreMetodo;
 
-    public MetodoPago() {
-    }
+    public MetodoPago() { }
 
     public MetodoPago(String nombreMetodo) {
         this.nombreMetodo = nombreMetodo;

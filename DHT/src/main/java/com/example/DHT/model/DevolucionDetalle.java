@@ -10,11 +10,11 @@ public class DevolucionDetalle {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "idDevolucion")
+    @JoinColumn(name = "`idDevolucion`")
     private Devolucion devolucion;
 
     @ManyToOne
-    @JoinColumn(name = "idCompraDetalle")
+    @JoinColumn(name = "`idCompraDetalle`")
     private CompraDetalle compraDetalle;
 
     @Column(name = "cantidadDevuelta", nullable = false)
