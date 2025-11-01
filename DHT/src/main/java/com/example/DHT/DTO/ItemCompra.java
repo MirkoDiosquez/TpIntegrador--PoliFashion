@@ -5,8 +5,7 @@ public class ItemCompra {
     private Integer idVariantePrenda;
     private Integer cantidad;
 
-    public ItemCompra() {
-    }
+    public ItemCompra() {  }
 
     public ItemCompra(Integer idVariantePrenda, Integer cantidad) {
         this.idVariantePrenda = idVariantePrenda;

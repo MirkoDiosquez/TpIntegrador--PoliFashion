@@ -8,8 +8,7 @@ public class DevolucionDTO {
     private Integer idCompra; 
     private List<ItemDevolucion> items;
 
-    public DevolucionDTO() {
-    }
+    public DevolucionDTO() {    }
 
     public DevolucionDTO(String clienteDni, Integer idCompra, List<ItemDevolucion> items) {
         this.clienteDni = clienteDni;

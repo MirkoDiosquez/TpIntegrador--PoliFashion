@@ -22,7 +22,8 @@ public class CompraController {
     public ResponseEntity<?> registrarNuevaCompra(@RequestBody CompraDTO compraRequest) {
         try {
             Compra compraGuardada = compraService.registrarCompra(compraRequest);
-            return new ResponseEntity<>(compraGuardada, HttpStatus.CREATED);
+            CompraDTO compraDTO = new CompraDTO(compraGuardada);
+            return new ResponseEntity<>(compraDTO, HttpStatus.CREATED);
 
         } catch (StockInsuficiente e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);

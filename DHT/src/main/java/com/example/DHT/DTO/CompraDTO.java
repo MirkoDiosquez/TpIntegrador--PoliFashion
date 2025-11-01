@@ -1,5 +1,9 @@
 package com.example.DHT.DTO;
 
+import com.example.DHT.model.Compra;
+import com.example.DHT.model.CompraDetalle;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class CompraDTO {
@@ -15,6 +19,16 @@ public class CompraDTO {
         this.clienteDni = clienteDni;
         this.idMetodo = idMetodo;
         this.items = items;
+    }
+
+    public CompraDTO(Compra compraGuardada) {
+        this.clienteDni = compraGuardada.getCliente().getDni();
+        this.idMetodo = compraGuardada.getMetodoPago().getIdMetodo();
+        this.items = new ArrayList<>();
+        for (CompraDetalle detalle : compraGuardada.getDetalles()){
+            ItemCompra item = new ItemCompra(detalle.getVariantePrenda().getId(), detalle.getCantidad());
+            this.items.add(item);
+        }
     }
 
     public String getClienteDni() {
