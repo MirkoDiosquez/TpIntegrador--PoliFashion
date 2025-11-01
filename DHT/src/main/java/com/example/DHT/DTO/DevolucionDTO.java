@@ -8,18 +8,15 @@ public class DevolucionDTO {
     private Integer idCompra; 
     private List<ItemDevolucion> items;
 
-    // Constructor vacío
     public DevolucionDTO() {
     }
 
-    // Constructor con campos
     public DevolucionDTO(String clienteDni, Integer idCompra, List<ItemDevolucion> items) {
         this.clienteDni = clienteDni;
         this.idCompra = idCompra;
         this.items = items;
     }
 
-    // Getters y Setters
     public String getClienteDni() {
         return clienteDni;
     }

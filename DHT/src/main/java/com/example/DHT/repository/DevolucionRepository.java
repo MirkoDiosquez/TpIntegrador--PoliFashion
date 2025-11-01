@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DevolucionRepository extends JpaRepository<Devolucion, Integer> {
+    boolean existsByCompraIdCompra(Integer idCompra);
 }

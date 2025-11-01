@@ -27,6 +27,11 @@ public class DevolucionService {
 
     @Transactional
     public Devolucion registrarDevolucion(DevolucionDTO devolucionRequest){
+        Integer idCompra = devolucionRequest.getidCompra(); //
+        if (devolucionRepository.existsByCompraIdCompra(idCompra)) {
+            throw new RuntimeException("Error: La compra con ID " + idCompra + " ya ha sido devuelta previamente y no se puede procesar una nueva devolución para la misma.");
+        }
+
         Cliente cliente = clienteRepository.findById(devolucionRequest.getClienteDni())
                 .orElseThrow(() -> new RuntimeException("Cliente no encontrado"));
         Compra compra = compraRepository.findById(devolucionRequest.getidCompra())
@@ -35,6 +40,7 @@ public class DevolucionService {
         if (!compra.getCliente().getDni().equals(cliente.getDni())) {
             throw new RuntimeException("La compra " + compra.getIdCompra() + " no pertenece al cliente " + cliente.getDni());
         }
+
 
         Devolucion devolucion = new Devolucion();
         devolucion.setCliente(cliente);
