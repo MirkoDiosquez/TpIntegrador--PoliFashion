@@ -25,6 +25,8 @@ public class ClienteService {
     private CompraDetalleRepository compraDetalleRepository;
 
     public HistorialDTO getHistorial(String clienteDni){
+        clienteRepository.findById(clienteDni).orElseThrow(() -> new RuntimeException("Cliente no existe"));
+
         List<Compra> comprasCliente = compraRepository.findAllByClienteDni(clienteDni);
         List<Devolucion> devolucionesCliente = devolucionRepository.findAllByClienteDni(clienteDni);
 
