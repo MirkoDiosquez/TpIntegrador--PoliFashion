@@ -15,8 +15,6 @@ public class ClienteController {
     public ResponseEntity<?> getHistorialDelCliente(@PathVariable("id") String clienteDni) {
         HistorialDTO historial = clienteService.getHistorial(clienteDni);
         return ResponseEntity.ok(historial);
-
-        // (Deberías añadir un try-catch para manejar si el cliente no existe)
     }
 
 
