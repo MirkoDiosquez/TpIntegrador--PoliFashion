@@ -15,12 +15,6 @@ public class CompraDTO {
     public CompraDTO() {
     }
 
-    public CompraDTO(String clienteDni, Integer idMetodo, List<ItemCompra> items) {
-        this.clienteDni = clienteDni;
-        this.idMetodo = idMetodo;
-        this.items = items;
-    }
-
     public CompraDTO(Compra compraGuardada) {
         this.clienteDni = compraGuardada.getCliente().getDni();
         this.idMetodo = compraGuardada.getMetodoPago().getIdMetodo();

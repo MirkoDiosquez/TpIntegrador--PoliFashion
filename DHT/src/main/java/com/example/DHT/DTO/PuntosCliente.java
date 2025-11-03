@@ -6,8 +6,7 @@ public class PuntosCliente {
     private String nombreCompleto;
     private Integer puntosActuales;
 
-    public PuntosCliente() {
-    }
+    public PuntosCliente() {   }
 
     public PuntosCliente(String clienteDni, String nombreCompleto, Integer puntosActuales) {
         this.clienteDni = clienteDni;

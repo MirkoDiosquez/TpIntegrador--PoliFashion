@@ -34,4 +34,5 @@ public class DisponibilidadStock {
     public void setVariantes(List<VarianteStock> variantes) {
         this.variantes = variantes;
     }
+
 }

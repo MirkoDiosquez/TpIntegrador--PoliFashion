@@ -23,7 +23,7 @@ public class CompraDetalle {
     private Integer cantidad;
 
     @Column(name = "precioUnitario", nullable = false)
-    private Double precioUnitario; // Precio "congelado"
+    private Double precioUnitario;
 
     @Column(name = "porcentajeComision", nullable = false)
     private Float porcentajeComision;

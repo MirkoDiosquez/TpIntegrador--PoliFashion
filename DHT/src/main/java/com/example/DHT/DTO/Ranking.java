@@ -6,11 +6,9 @@ public class Ranking {
     private Long cantidadVendida;
     private Double ingresosGenerados;
 
-    // Constructor vacío
     public Ranking() {
     }
 
-    // Constructor (usado por el repositorio)
     public Ranking(String nombrePrenda, Long cantidadVendida, Double ingresosGenerados) {
         this.nombrePrenda = nombrePrenda;
         this.cantidadVendida = cantidadVendida;

@@ -4,24 +4,20 @@ import com.example.DHT.model.CompraDetalle;
 
 public class ItemDevolucion{
 
-    private Integer idCompraDetalle;
-    private Integer cantidadADevolver;
+    private int idCompraDetalle;
+    private int cantidadADevolver;
 
     public ItemDevolucion() {   }
-
-    public Integer getIdCompraDetalle() {
+    public int getIdCompraDetalle() {
         return idCompraDetalle;
     }
-
-    public void setIdCompraDetalle(Integer idCompraDetalle) {
+    public void setIdCompraDetalle(int idCompraDetalle) {
         this.idCompraDetalle = idCompraDetalle;
     }
-
-    public Integer getCantidadADevolver() {
+    public int getCantidadADevolver() {
         return cantidadADevolver;
     }
-
-    public void setCantidadADevolver(Integer cantidadADevolver) {
+    public void setCantidadADevolver(int cantidadADevolver) {
         this.cantidadADevolver = cantidadADevolver;
     }
 }
