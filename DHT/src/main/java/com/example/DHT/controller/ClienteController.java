@@ -1,7 +1,9 @@
 package com.example.DHT.controller;
 import com.example.DHT.DTO.historial.HistorialDTO;
+import com.example.DHT.repository.ClienteRepository;
 import com.example.DHT.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,8 +15,13 @@ public class ClienteController {
 
     @GetMapping("/{id}/historial")
     public ResponseEntity<?> getHistorialDelCliente(@PathVariable("id") String clienteDni) {
-        HistorialDTO historial = clienteService.getHistorial(clienteDni);
-        return ResponseEntity.ok(historial);
+       try {
+           HistorialDTO historial = clienteService.getHistorial(clienteDni);
+           return ResponseEntity.ok(historial);
+       }
+       catch (RuntimeException e) {
+           return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+       }
     }
 
 
