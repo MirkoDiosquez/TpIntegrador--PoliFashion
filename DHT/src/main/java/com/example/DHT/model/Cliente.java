@@ -28,9 +28,6 @@ public class Cliente {
     @Column(name = "genero", nullable = false)
     private GeneroUsuario genero;
 
-    @Column(name = "fotoPerfil", length = 45)
-    private String fotoPerfil;
-
     public Cliente() {
     }
 
@@ -41,7 +38,6 @@ public class Cliente {
         this.fechaNacimiento = fechaNacimiento;
         this.puntos = puntos;
         this.genero = genero;
-        this.fotoPerfil = fotoPerfil;
     }
 
     // Getters y Setters
@@ -91,13 +87,5 @@ public class Cliente {
 
     public void setGenero(GeneroUsuario genero) {
         this.genero = genero;
-    }
-
-    public String getFotoPerfil() {
-        return fotoPerfil;
-    }
-
-    public void setFotoPerfil(String fotoPerfil) {
-        this.fotoPerfil = fotoPerfil;
     }
 }
