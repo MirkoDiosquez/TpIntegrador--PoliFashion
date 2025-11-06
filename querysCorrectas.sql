@@ -1,3 +1,74 @@
+/* EJERCICIO 1 */
+
+drop trigger aumComision_y_AjusteStock;
+
+delete from devolucion;
+delete from devolucion_detalle;
+drop function corroborarAntiguedad;
+drop procedure devolucionPrenda;
+
+select * from prenda_has_talleycolor;
+
+select * from alerta_stock;
+
+select * from prenda;
+
+select * from compra;
+
+delimiter //
+
+-- falta terminar y pulir --
+create trigger aumComision_y_AjusteStock after insert on compra_detalle for each row
+begin 	
+	declare idMarc int default 0;
+    declare porcentajeDeMarca float default 0;
+    
+    
+    
+    
+    select idMarca into idMarc from prenda join prenda_has_talleycolor ptc on prenda.idPrenda = ptc.p_idPrenda
+    where ptc.p_idPrenda = NEW.idVariantePrenda;
+    
+    select porcentajeComision into porcentajeDeMarca from marca join prenda on marca.idMarca = prenda.idMarca
+	join prenda_has_talleycolor ptc on prenda.idPrenda = ptc.p_idPrenda
+	where ptc.id = NEW.idVariantePrenda;
+    
+    
+    if ( porcentajeDeMarca > 15 ) then
+		update marca set porcentajeComision = porcentajeComision + 0.05 where idMarca = idMarc;
+	end if;
+    
+     UPDATE prenda_has_talleycolor 
+    SET stock = stock - 1 
+    WHERE id = NEW.idVariantePrenda;
+    
+    
+    -- 5️⃣ Obtener el nuevo stock y el stock mínimo
+    SELECT stock, stockMinimo 
+    INTO nuevoStock, stockMin 
+    FROM prenda_has_talleycolor 
+    WHERE id = NEW.idVariantePrenda;
+
+    -- 6️⃣ Si el stock es menor al mínimo, registrar alerta
+    IF nuevoStock < stockMin THEN
+        INSERT INTO alertas_stock (idVariantePrenda, fechaAlerta, descripcion)
+        VALUES (NEW.idVariantePrenda, NOW(), 'Stock por debajo del mínimo');
+    END IF;
+
+    
+    
+end//
+
+
+delimiter;
+
+
+
+
+
+
+
+
 /* EJERCICIO 3 */
 delimiter //
 create procedure prendasMasVendidas (in fechaInicio date, in fechaFin date)
@@ -24,40 +95,44 @@ begin
 	declare cant int ;
 	declare cursorC cursor for select idVariantePrenda,prenda.idMarca,cantidad from compra_detalle join prenda_has_talleycolor p
 	on p.id = idVariantePrenda join prenda on prenda.idPrenda = p.p_idPrenda where idCompra = idVenta;
-     declare continue handler for not found set hayFilas = 0;
+	declare continue handler for not found set hayFilas = 0;
 
     if exists (select 1 from compra_detalle where idCompra = idVenta) then
 		set existeCompra = true;
 	end if;
     
-	if existeCompra then
-		open cursorC;
-			cloop:loop
-				fetch cursorC into idP, idM, cant;
-				if hayFilas=0 then
-					leave cloop;
-				end if;
-                
-		if ( (chequearVentasMinimasMarca(idM) and corroborarAntiguedad(idVenta)) and noSeDevolvioAntes(idVenta) ) then
-			select costoTotal into costoCompra from compra where idCompra = idVenta;
-            select id into idCD from compra_detalle where idCompra = idVenta and idVariantePrenda = idP;
-			
+    
+	if existeCompra and noSeDevolvioAntes(idVenta) then
+		 start transaction;
+         select costoTotal into costoCompra from compra where idCompra = idVenta;
             insert into devolucion (idCompra, dniCliente, fechaHora, montoTotalReembolsado)
             values (idVenta, dniClient, now(), costoCompra);
             
             set idDev = last_insert_id();
+		open cursorC;
+			cloop:loop
+				fetch cursorC into idP, idM, cant;
+				if hayFilas=0 and corroborarAntiguedad(idVenta) then
+					leave cloop;
+				end if;
+               
+		if (chequearVentasMinimasMarca(idM)) then
+
+            select id into idCD from compra_detalle where idCompra = idVenta and idVariantePrenda = idP;
             
             insert into devolucion_detalle (idDevolucion, idCompraDetalle, cantidadDevuelta)
             values (idDev, idCD, cant);
             
             update prenda_has_talleycolor set stock = stock + cant where id = idP;
 		else
-			signal sqlstate '45000' set message_text = 'No se puede devolver esta compra';
+			rollback;
+			signal sqlstate '45000' set message_text = 'No se puede devolver todos los productos';
         end if; 
         end loop;
         close cursorC;
+			commit;
 	else 
-		signal sqlstate '45000' set message_text = 'No existe esa compra';
+		signal sqlstate '45000' set message_text = 'No existe esa compra o Ya se devolvio esa compra';
     end if;
 end //
 delimiter ;
@@ -108,7 +183,7 @@ begin
 	declare puedeDevolver boolean default 0;
 	declare fecha datetime;
     select datetimeCompra into fecha from compra where compra.idCompra = idCompra;
-    if ( fecha < date_sub(now(), interval 30 DAY) ) then
+    if ( fecha > date_sub(now(), interval 30 DAY) ) then
 		set puedeDevolver = true;
 	end if;
     return puedeDevolver;
@@ -128,3 +203,4 @@ begin
 	update cliente set puntos = (puntos + (puntos * 0.05) ) where cliente.dni in ( select compra.clienteDni from compra where datetimeCompra between fechaInicio and fechaFin );
 end //
 delimiter ;
+
