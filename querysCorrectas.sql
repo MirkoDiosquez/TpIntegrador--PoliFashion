@@ -1,4 +1,7 @@
-/* EJERCICIO 1 */
+
+
+select * from prenda_has_talleycolor;
+
 
 drop trigger aumComision_y_AjusteStock;
 
@@ -17,12 +20,12 @@ select * from compra;
 
 delimiter //
 
--- falta terminar y pulir --
+/* EJERCICIO 1 */
 create trigger aumComision_y_AjusteStock after insert on compra_detalle for each row
 begin 	
 	declare idMarc int default 0;
     declare porcentajeDeMarca float default 0;
-    
+    declare stockUltimaPrendaComprada int default 0;
     
     
     
@@ -34,37 +37,58 @@ begin
 	where ptc.id = NEW.idVariantePrenda;
     
     
-    if ( porcentajeDeMarca > 15 ) then
+    if ( porcentajeDeMarca < 15 ) then
 		update marca set porcentajeComision = porcentajeComision + 0.05 where idMarca = idMarc;
 	end if;
     
-     UPDATE prenda_has_talleycolor 
-    SET stock = stock - 1 
-    WHERE id = NEW.idVariantePrenda;
+    -- El stock se actualiza igualmente. El if es para que no aumente su comision por cada venta-
+    update prenda_has_talleycolor set stock = stock - 1  where idMarca = NEW.idVariantePrenda;
     
+    update marca set cantidadVentasTotales = cantidadVentasTotales + NEW.cantidad where idMarca = idMarc;
     
-    -- 5️⃣ Obtener el nuevo stock y el stock mínimo
-    SELECT stock, stockMinimo 
-    INTO nuevoStock, stockMin 
-    FROM prenda_has_talleycolor 
-    WHERE id = NEW.idVariantePrenda;
+    -- Obtengo el stock de la ultima prenda comprada y el stock mínimo
+    select stock, stockMinimo into stockUltimaPrendaComprada, stockMin from prenda_has_talleycolor 
+    where id = NEW.idVariantePrenda;
 
-    -- 6️⃣ Si el stock es menor al mínimo, registrar alerta
-    IF nuevoStock < stockMin THEN
-        INSERT INTO alertas_stock (idVariantePrenda, fechaAlerta, descripcion)
-        VALUES (NEW.idVariantePrenda, NOW(), 'Stock por debajo del mínimo');
-    END IF;
+
+    if  (stockUltimaPrendaComprada < stockMin) then
+        insert into alertas_stock values (NEW.idVariantePrenda, now(), 'El stock de esta prenda está por debajo del mínimo');
+    end if;
 
     
     
 end//
 
 
-delimiter;
+delimiter ;
+
+/* Ejercicio 2 */ 
+
+delimiter //
+create trigger chequeo_ventasMinimas before insert on devolucion_detalle for each row
+begin
+	declare idMarc int default 0;
+	declare cantMinimasVentas int default 0;
+    declare cantVentasTotales int default 0;
+    
+    -- Agarramos la marca de la prenda que está asociada en la devolucion --
+	select m.idMarca into idMarc from compra_detalle cd join prenda_has_talleycolor ptc on cd.idVariantePrenda = ptc.id
+    join prenda p on ptc.p_idPrenda = p.idPrenda
+    join marca m on p.idMarca = m.idMarca
+    where cd.id = NEW.idCompraDetalle;
 
 
 
-
+	select ventasMinimasParaDevolucion into cantMinimasVentas from marca where idMarca = idMarc;
+    select cantidadVentasTotales into cantVentasTotales from marca where idMarca = idMarc;
+	
+    if ( cantVentasTotales < cantMinimasVentas ) then
+		signal SQLSTATE '45000' set message_text = "no se pudo realizar el cambio";
+	end if;
+    
+    end//
+    
+    delimiter ; 
 
 
 
@@ -81,7 +105,7 @@ delimiter ;
 call prendasMasVendidas ('2025-10-10','2025-10-12');
 
 /* EJERCICIO 4 terminado */
-/* aca estamos devolviendo directamente toda la compra, no sabemos si hay q especificar una prenda para devolver */
+/* Aca estamos devolviendo directamente toda la compra*/
 delimiter //
 create procedure devolucionPrenda (in idVenta int, in dniClient varchar(45))
 begin
@@ -191,7 +215,7 @@ end //
 delimiter ;
 
 
--- Ejercicio 5--
+/* Ejercicio 5 */
 delimiter //
 create procedure bonusClientes () 
 begin
@@ -203,4 +227,39 @@ begin
 	update cliente set puntos = (puntos + (puntos * 0.05) ) where cliente.dni in ( select compra.clienteDni from compra where datetimeCompra between fechaInicio and fechaFin );
 end //
 delimiter ;
+
+delimiter //
+create event bonusClienteSemanal on schedule every 1 week starts now() do
+begin 
+	 call bonusClientes();
+     end //
+
+delimiter ;  
+   
+
+/* Ejercicio 6 */
+
+
+delimiter //
+CREATE PROCEDURE eliminarMarcas_Stock()
+BEGIN 
+    delete from marca where idMarca IN ( SELECT idMarca from ( select prenda.idMarca, SUM(prenda_has_talle.stock) AS total_stock from  prenda 
+     join prenda_has_talle ON prenda.idPrenda = prenda_has_talle.idPrenda 
+		group by  prenda.idMarca ) 
+        where total_stock <= 0 OR total_stock is null
+    )
+    and idMarca not in (
+        select prenda.idMarca
+        from prenda 
+        join compra_detalle on compra_detalle.idPrenda = prenda.idPrenda
+        join compra on compra.idCompra = compra_detalle.idCompra
+        where compra.datetimeCompra >= DATE_SUB(CURDATE(), interval 6 month)
+    );
+end;
+//
+
+create event eliminarStockEvento on schedule every 15 day starts now() do
+begin
+	call eliminarMarcas_Stock();
+end;
 
