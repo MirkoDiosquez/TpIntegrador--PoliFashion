@@ -3,11 +3,12 @@ package com.example.DHT.DTO;
 import com.example.DHT.extras.enums.GeneroPrenda;
 import com.example.DHT.model.Prenda;
 import com.example.DHT.model.VariantePrenda;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class PrendaDTO {
+
+    // Campos del JSON
     private Integer idTela;
     private Integer idTipo;
     private String nombre;
@@ -28,8 +29,9 @@ public class PrendaDTO {
         this.precio = prenda.getPrecio();
         this.descripcion = prenda.getDescripcion();
         this.variantes = new ArrayList<>();
-        if ((prenda.getVariantesPrendas()) != null) {
-            for (VariantePrenda vp : prenda.getVariantesPrendas()) {
+
+        if (prenda.getVariantes() != null) {
+            for (VariantePrenda vp : prenda.getVariantes()) {
                 this.variantes.add(new Variante(
                         vp.getTalle().getId(),
                         vp.getColor(),
@@ -80,19 +82,19 @@ public class PrendaDTO {
         this.precio = precio;
     }
 
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
     public List<Variante> getVariantes() {
         return variantes;
     }
 
     public void setVariantes(List<Variante> variantes) {
         this.variantes = variantes;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 }
