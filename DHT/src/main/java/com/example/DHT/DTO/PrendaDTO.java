@@ -8,7 +8,6 @@ import java.util.List;
 
 public class PrendaDTO {
 
-    // Campos del JSON
     private Integer idTela;
     private Integer idTipo;
     private String nombre;
@@ -30,15 +29,13 @@ public class PrendaDTO {
         this.descripcion = prenda.getDescripcion();
         this.variantes = new ArrayList<>();
 
-        if (prenda.getVariantes() != null) {
-            for (VariantePrenda vp : prenda.getVariantes()) {
-                this.variantes.add(new Variante(
-                        vp.getTalle().getId(),
-                        vp.getColor(),
-                        vp.getStock(),
-                        vp.getStockMinimo()
-                ));
-            }
+        for (VariantePrenda vp : prenda.getVariantes()) {
+            this.variantes.add(new Variante(
+                    vp.getTalle().getId(),
+                    vp.getColor(),
+                    vp.getStock(),
+                    vp.getStockMinimo()
+            ));
         }
     }
 
@@ -97,4 +94,6 @@ public class PrendaDTO {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
+
 }

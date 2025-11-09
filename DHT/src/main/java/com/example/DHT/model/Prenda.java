@@ -3,6 +3,8 @@ package com.example.DHT.model;
 import com.example.DHT.extras.enums.GeneroPrenda; // O donde tengas tu enum
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "prenda")
 public class Prenda {
@@ -37,8 +39,10 @@ public class Prenda {
     @Column(name = "descripcion", columnDefinition = "TEXT")
     private String descripcion;
 
-    public Prenda() {
-    }
+    @OneToMany(mappedBy = "prenda", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<VariantePrenda> variantes;
+
+    public Prenda() {    }
 
     public Prenda(Marca marca, Tela tela, Tipo tipo, String nombre, GeneroPrenda genero, Double precio, String descripcion) {
         this.marca = marca;
@@ -112,5 +116,13 @@ public class Prenda {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public List<VariantePrenda> getVariantes() {
+        return variantes;
+    }
+
+    public void setVariantes(List<VariantePrenda> variantes) {
+        this.variantes = variantes;
     }
 }
