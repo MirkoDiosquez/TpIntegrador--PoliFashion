@@ -1,0 +1,51 @@
+/* ej B */
+{
+    "clienteDni": "12345678",
+    "idCompra": 4,
+    "items": [
+        { 
+            "idCompraDetalle": 5,   
+            "cantidadADevolver": 1
+        }
+    ]
+}
+
+/* ej C */
+http://localhost:8080/api/cliente/12345678/historial --> existe
+http://localhost:8080/api/cliente/12345677/historial --> no existe cliente
+
+ /* ej E */
+http://localhost:8080/api/marcas/3/modelos  --> marca "3" porque es puma
+{
+    "idTela": 4,
+    "idTipo": 6,
+    "nombre": "Buzo Puma T7",
+    "genero": "Unisex",
+    "precio": 28999.00,
+    "descripcion": "Elevá el nivel de tu look con este Buzo Puma T7. Con un cierre metálico, ícono PUMA Cat bordado e icónicas tiras T7 en las mangas, es toda una declaración de estilo. Destacá y adueñate de tu look con PUMA.",
+    "variantes": [
+        {
+            "idTalle": 3,
+            "color": "Gris",
+            "stockInicial": 30,
+            "stockMinimo": 5
+        }, 
+        {
+            "idTalle": 4,
+            "color": "Gris",
+            "stockInicial": 15,
+            "stockMinimo": 5
+        },
+        {
+            "idTalle": 3,
+            "color": "Negro",
+            "stockInicial": 40,
+            "stockMinimo": 5
+        }, {
+            "idTalle": 2,
+            "color": "Negro",
+            "stockInicial": 20,
+            "stockMinimo": 5
+        }
+    ]
+}
