@@ -1,0 +1,350 @@
+.bbh-sans-hegarty-regular {
+  font-family: "BBH Sans Hegarty", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.bricolage-grotesque-principal{
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:"wdth" 100;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Bricolage Grotesque", sans-serif;
+}
+
+:root {
+    --titulo: #2F4550;
+    --color-secondary: #586F7C;
+    --color-accent: #B8DBD9;
+    --fondo: #F4F4F9;
+    --color-dark: #1A1A1A;
+}
+
+
+.titulo{
+    font-family: 'BBH Sans Hegarty', sans-serif;
+    font-weight: 300; 
+    letter-spacing: 1.2px;
+    color: var(--titulo); 
+}
+
+body {
+    font-family: "Bricolage Grotesque", sans-serif;
+    background-color: var(--fondo) !important;
+    color: #333;
+}
+
+/* ------------------------ */
+.navBar {
+    background-color: var(--fondo);
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.navbar-brand img{
+    width: 80px; 
+    height: auto;
+}
+
+.nav-link {
+    color: #666 !important;
+    margin: 0 0.5rem;
+    font-weight: 500;
+}
+
+.botonSubmit {
+    background-color: #2f4550;
+    color: white;
+    border-radius: 25px;
+    padding: 0.5rem 1.5rem;
+    font-weight: 600;
+    border: none;
+    font-size: 0.9rem; 
+    transition: background-color 0.3s ease;
+}
+
+.botonSubmit:hover {
+    background-color: #333;
+}
+
+.dropdownTexto .textoDrop{
+    color: #2f4550 !important;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.dropdownTexto .textoDrop:hover {
+    color: #000 !important; 
+}
+
+.dropdown-menu {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border: none;
+    padding: 0.5rem 0; 
+}
+
+.dropdown-item {
+    color: #333;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background-color: #e9ecef;
+    color: #000;
+}
+
+/* ------------------------------------ */
+.contenedor{
+background-color: var(--fondo); 
+}
+
+.seccionForm{
+    max-width: 500px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background-color: var(--fondo); 
+}
+
+.seccionForm h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #2f4550; 
+}
+
+.form-label {
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.form-control, .form-select {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 0.75rem;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+    background-color: #fff; 
+}
+
+.form-control::placeholder {
+    color: #999; 
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #000; 
+    box-shadow: 0 0 0 0.1rem rgba(0,0,0,0.1);
+    background-color: #E9E9F0; 
+}
+
+.gender-options {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.gender-options .form-check {
+    flex: 1;
+}
+
+.form-check-input {
+    border: 1px solid #ccc; 
+    transition: all 0.2s ease;
+}
+
+.form-check-input:checked {
+    background-color: #000; 
+    border-color: #000;
+}
+
+.btn-register {
+    background-color: #000;
+    color: white;
+    width: 100%;
+    padding: 0.9rem;
+    border-radius: 8px;
+    font-weight: 600;
+    border: none;
+    margin-top: 1.5rem;
+    transition: all 0.3s;
+    font-size: 1.1rem; 
+}
+
+.btn-register:hover {
+    background-color: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
+}
+
+.linkkk {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.linkkk a {
+    color: #000; 
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.linkkk a:hover {
+    text-decoration: underline;
+    color: #2f4550;
+}
+
+/*-------------------------------*/
+.contFooter {
+    background-color: #b8dbd9; 
+    padding: 4rem 1rem 1rem;
+    margin: 3% 3% 1% 3%;
+    color: #2f4550;
+    border-radius: 15px;
+}
+
+.contenedorFooter {
+    max-width: 1200px;
+    margin: 0% auto !important;
+    padding: 0% !important;
+}
+
+.seccionNewsletter {
+    max-width: 400px;
+}
+
+.seccionNewsletter h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #2f4550; 
+}
+
+.seccionNewsletter p {
+    color: #2f4550; 
+    opacity: 0.8;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.formNewsletter {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.formNewsletter input {
+    flex: 1;
+    border: none;
+    padding: 0.75rem 1rem; 
+    border-radius: 6px;
+    background-color: rgba(255,255,255,0.8); 
+    color: #333;
+}
+
+.formNewsletter input::placeholder {
+    color: #666;
+}
+
+.formNewsletter button {
+    background-color: #000;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    line-height: 1;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.formNewsletter button:hover {
+    background-color: #333;
+    transform: translateX(3px); 
+}
+
+.footer-links {
+    margin-top: 0; 
+}
+
+.footer-links h5 {
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    color: #2f4550; 
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links ul li a {
+    color: #2f4550; 
+    text-decoration: none;
+    font-size: 0.9rem;
+    opacity: 0.8; 
+    transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+    color: #000;
+    text-decoration: underline;
+    opacity: 1;
+}
+
+/* --- Animación de Olas (Ticker) --- */
+@keyframes scroll-horizontal {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+
+.ola-ticker-contenedor {
+  width: 100%;
+  overflow: hidden;
+  margin-top: 0.5rem; 
+}
+
+.ola-ticker-track {
+  display: flex;
+  width: 200%; 
+  animation: scroll-horizontal 20s linear infinite;
+}
+
+.ola-ticker-track img {
+  width: 50%; 
+  height: auto; 
+  display: block;
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 1rem; 
+    color: #2f4550; 
+    opacity: 0.8;
+    font-size: 0.85rem;
+}

@@ -49,3 +49,20 @@ http://localhost:8080/api/marcas/3/modelos  --> marca "3" porque es puma
         }
     ]
 }
+
+/* ej extra de registro */
+{
+    "dni": "12345679",
+    "nombre": "Juan",
+    "apellido": "Perez",
+    "fechaNacimiento": "1990-06-01",
+    "genero": "masculino",
+    "email": "juan@correo.com",
+    "contrasenia": "mi_password_123"
+}
+
+/* para login */
+{
+    "email": "juan@correo.com",
+    "contrasenia": "mi_password_123"
+}

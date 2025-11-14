@@ -4,29 +4,43 @@ import com.example.DHT.extras.enums.GeneroUsuario;
 
 import java.time.LocalDate;
 
-public class Cliente
+public class ClienteDTO
 {
-    private int dni ;
+    private String dni ;
     private String nombre ;
     private String apellido ;
     private LocalDate fechaNacimiento ;
     private int puntos ;
     private GeneroUsuario genero ;
+    private String email;
+    private String contrasenia;
 
-    public Cliente(int dni, String nombre, String apellido, LocalDate fechaNacimiento, int puntos, GeneroUsuario genero) {
+    public ClienteDTO(String dni, String nombre, String apellido, LocalDate fechaNacimiento, String genero, String email, String contrasenia) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
         this.fechaNacimiento = fechaNacimiento;
-        this.puntos = puntos;
-        this.genero = genero;
+        this.puntos = 0;
+        this.genero = convertirStringAlEnum(genero);
+        this.email = email;
+        this.contrasenia = contrasenia;
     }
 
-    public int getDni() {
+    public GeneroUsuario convertirStringAlEnum(String genero){
+        if(genero.equals("masculino")){
+            return GeneroUsuario.Masculino;
+        }
+        else if(genero.equals("femenino")){
+            return GeneroUsuario.Femenino;
+        }
+        return GeneroUsuario.Otro;
+    }
+
+    public String getDni() {
         return dni;
     }
 
-    public void setDni(int dni) {
+    public void setDni(String dni) {
         this.dni = dni;
     }
 
@@ -68,5 +82,21 @@ public class Cliente
 
     public void setGenero(GeneroUsuario genero) {
         this.genero = genero;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getContrasenia() {
+        return contrasenia;
+    }
+
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
     }
 }

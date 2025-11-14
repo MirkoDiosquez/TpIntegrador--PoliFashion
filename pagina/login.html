@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DHT - Regístrate</title>
+    <link rel="stylesheet" href="styles.css">
+    <style> @import url('https://fonts.googleapis.com/css2?family=BBH+Sans+Hegarty&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');</style>
+    <style> @import url('https://fonts.googleapis.com/css2?family=BBH+Sans+Hegarty&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');</style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navBar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="logo.png" alt="dht crew logo"/></a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown dropdownTexto">
+                        <a class="nav-link dropdown-toggle textoDrop" href="#" role="button" data-bs-toggle="dropdown">Tienda</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Todos los productos</a></li>
+                            <li><a class="dropdown-item" href="#">Novedades</a></li>
+                            <li><a class="dropdown-item" href="#">Ofertas</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown dropdownTexto">
+                        <a class="nav-link dropdown-toggle textoDrop" href="#" role="button" data-bs-toggle="dropdown"> Marcas </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Nike</a></li>
+                            <li><a class="dropdown-item" href="#">Adidas</a></li>
+                            <li><a class="dropdown-item" href="#">Puma</a></li>
+                            <li><a class="dropdown-item" href="#">Kiech</a></li>
+                            <li><a class="dropdown-item" href="#">King Of The Kongo</a></li>
+                            <li><a class="dropdown-item" href="#">Vancouver</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown dropdownTexto">
+                        <a class="nav-link dropdown-toggle textoDrop" href="#" role="button" data-bs-toggle="dropdown"> Ayuda </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Sobre Nosotros</a></li>
+                            <li><a class="dropdown-item" href="#">FAQ</a></li>
+                            <li><a class="dropdown-item" href="#">Contacto</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="d-flex align-items-center">
+                <i class="bi bi-cart"></i> 
+                <button class="btn-login">Ingresar</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container contenedor">
+        <div class="register-section seccionForm">
+            <h1 class="titulo">Registrate y accede a los mejores beneficios</h1>
+
+            <form class="formulario" id="loginForm">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="jane@framer.com" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="contrasenia" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="contrasenia" placeholder="contraseña123" required>
+                </div>
+
+                <button type="submit" class="btn-login botonSubmit">Iniciar Sesion</button>
+            </form>
+
+            <div class="register-link linkkk">
+                ¿No tenés cuenta? <a href="registro.html">Registrate acá</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer contFooter">
+        <div class="container contenedorFooter">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="newsletter-section seccionNewsletter">
+                        <h3 class="titulo">Subscribite a nuestro newsletter & gana 15% de descuento</h3>
+                        <p style="font-size: 0.85rem; color: #666;">Únete a nuestro newsletter, estás esperando recibir correos con información sobre los últimos eventos para que no te pierdas nada!</p>
+                        <div class="newsletter-form formNewsletter">
+                            <input type="email" placeholder="Ingresá tu email" class="form-control">
+                            <button>→</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="row footer-links">
+                        <div class="col-6 col-md-3">
+                            <h5  class="titulo">PRODUCTOS</h5>
+                            <ul>
+                                <li><a href="#">Mujer</a></li>
+                                <li><a href="#">Hombre</a></li>
+                                <li><a href="#">New In</a></li>
+                                <li><a href="#">Tienda</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <h5  class="titulo">DHT CREW</h5>
+                            <ul>
+                                <li><a href="#">Sobre nosotros</a></li>
+                                <li><a href="#">FAQ</a></li>
+                                <li><a href="#">Contáctanos</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <h5 class="titulo">REDES</h5>
+                            <ul>
+                                <li><a href="#">Instagram</a></li>
+                                <li><a href="#">TwittenX.com</a></li>
+                                <li><a href="#">Facebook</a></li>
+                                <li><a href="#">Tiktok</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <h5 class="titulo">LEGAL</h5>
+                            <ul>
+                                <li><a href="#">Términos y condiciones</a></li>
+                                <li><a href="#">Devoluciones</a></li>
+                                <li><a href="#">Política de privacidad</a></li>
+                                <li><a href="#">404</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ola-ticker-contenedor">
+                <div class="ola-ticker-track">
+                    <img src="olaa.png"> 
+                    <img src="olaa.png">
+                </div>
+            </div>
+
+            <div class="copyright">© DHT, 2025</div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = {
+                email: document.getElementById('email').value,
+                contrasenia: document.getElementById('contrasenia').value
+            };
+            
+            console.log('Enviando a Spring Boot:', formData);
+            
+            fetch('http://localhost:8080/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    return response.text().then(text => { throw new Error(text) });
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Success:', data);
+                alert('¡Bienvenido ' + data.nombre + "!");
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                alert('Error en el registro: ' + error.message);
+            });
+        });
+    </script>
+</body>
+</html>

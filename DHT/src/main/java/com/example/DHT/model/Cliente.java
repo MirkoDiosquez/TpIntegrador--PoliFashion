@@ -22,25 +22,44 @@ public class Cliente {
     private LocalDate fechaNacimiento;
 
     @Column(name = "puntos")
-    private Integer puntos;
+    private int puntos;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "genero", nullable = false)
     private GeneroUsuario genero;
 
+    @Column(name = "email", nullable = false, unique = true, length = 50)
+    private String email;
+
+    @Column(name = "contrasenia", nullable = false, length = 50)
+    private String contrasenia;
+
+
     public Cliente() {
     }
 
-    public Cliente(String dni, String nombre, String apellido, LocalDate fechaNacimiento, Integer puntos, GeneroUsuario genero, String fotoPerfil) {
+    public Cliente(String dni, String nombre, String apellido, LocalDate fechaNacimiento, int puntos, GeneroUsuario genero, String email, String contrasenia) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
         this.fechaNacimiento = fechaNacimiento;
         this.puntos = puntos;
         this.genero = genero;
+        this.email = email;
+        this.contrasenia = contrasenia;
     }
 
-    // Getters y Setters
+   public Cliente(String dni, String nombre, String apellido, LocalDate fechaNacimiento, GeneroUsuario genero, String email, String contrasenia) {
+        this.dni = dni;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.fechaNacimiento = fechaNacimiento;
+        this.puntos = 0;
+        this.genero = genero;
+        this.email = email;
+        this.contrasenia = contrasenia;
+    }
+
     public String getDni() {
         return dni;
     }
@@ -73,11 +92,11 @@ public class Cliente {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    public Integer getPuntos() {
+    public int getPuntos() {
         return puntos;
     }
 
-    public void setPuntos(Integer puntos) {
+    public void setPuntos(int puntos) {
         this.puntos = puntos;
     }
 
@@ -87,5 +106,21 @@ public class Cliente {
 
     public void setGenero(GeneroUsuario genero) {
         this.genero = genero;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getContrasenia() {
+        return contrasenia;
+    }
+
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
     }
 }
