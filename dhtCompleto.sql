@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.43, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.42, for Win64 (x86_64)
 --
--- Host: localhost    Database: dhtCrew
+-- Host: localhost    Database: dhtcrew
 -- ------------------------------------------------------
--- Server version	8.0.43-0ubuntu0.24.04.2
+-- Server version	8.0.42
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -165,6 +165,35 @@ CREATE TABLE `devolucion` (
 LOCK TABLES `devolucion` WRITE;
 /*!40000 ALTER TABLE `devolucion` DISABLE KEYS */;
 /*!40000 ALTER TABLE `devolucion` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `devolucion_detalle`
+--
+
+DROP TABLE IF EXISTS `devolucion_detalle`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `devolucion_detalle` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `idDevolucion` int NOT NULL,
+  `idCompraDetalle` int NOT NULL,
+  `cantidadDevuelta` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idDevolucion` (`idDevolucion`),
+  KEY `idCompraDetalle` (`idCompraDetalle`),
+  CONSTRAINT `dd_ibfk_1` FOREIGN KEY (`idDevolucion`) REFERENCES `devolucion` (`idDevolucion`),
+  CONSTRAINT `dd_ibfk_2` FOREIGN KEY (`idCompraDetalle`) REFERENCES `compra_detalle` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `devolucion_detalle`
+--
+
+LOCK TABLES `devolucion_detalle` WRITE;
+/*!40000 ALTER TABLE `devolucion_detalle` DISABLE KEYS */;
+/*!40000 ALTER TABLE `devolucion_detalle` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -488,4 +517,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-11-14  8:51:42
+-- Dump completed on 2025-11-15 17:27:28
