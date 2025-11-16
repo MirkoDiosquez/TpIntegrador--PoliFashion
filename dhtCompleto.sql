@@ -1,8 +1,8 @@
 -- MySQL dump 10.13  Distrib 8.0.42, for Win64 (x86_64)
 --
--- Host: localhost    Database: dhtcrew
+-- Host: 127.0.0.1    Database: dhtcompleto
 -- ------------------------------------------------------
--- Server version	8.0.42
+-- Server version	9.3.0
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -30,7 +30,7 @@ CREATE TABLE `alerta_stock` (
   PRIMARY KEY (`idAlerta`),
   KEY `idVariantePrenda` (`idVariantePrenda`),
   CONSTRAINT `alerta_stock_ibfk_1` FOREIGN KEY (`idVariantePrenda`) REFERENCES `prenda_has_talleycolor` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,6 +39,7 @@ CREATE TABLE `alerta_stock` (
 
 LOCK TABLES `alerta_stock` WRITE;
 /*!40000 ALTER TABLE `alerta_stock` DISABLE KEYS */;
+INSERT INTO `alerta_stock` VALUES (1,9,'2025-11-10 09:15:00','Stock crítico - Solo 3 unidades disponibles'),(2,27,'2025-11-12 14:30:00','Stock crítico - Solo 1 unidad disponible'),(3,146,'2025-11-08 11:20:00','Producto agotado - Requiere reposición urgente'),(4,155,'2025-11-09 16:45:00','Producto agotado - Requiere reposición urgente'),(5,163,'2025-11-13 10:00:00','Stock crítico - Solo 1 unidad disponible'),(6,164,'2025-11-11 08:30:00','Producto agotado - Requiere reposición urgente'),(7,173,'2025-11-14 13:50:00','Stock crítico - Solo 3 unidades disponibles'),(8,185,'2025-11-07 15:10:00','Producto agotado - Requiere reposición urgente'),(9,194,'2025-11-15 09:25:00','Stock crítico - Solo 2 unidades disponibles'),(10,203,'2025-11-06 12:40:00','Producto agotado - Requiere reposición urgente'),(11,214,'2025-11-09 17:20:00','Producto agotado - Requiere reposición urgente'),(12,227,'2025-11-10 14:15:00','Producto agotado - Requiere reposición urgente'),(13,236,'2025-11-14 11:30:00','Stock crítico - Solo 2 unidades disponibles'),(14,245,'2025-11-12 16:00:00','Producto agotado - Requiere reposición urgente'),(15,254,'2025-11-13 10:45:00','Producto agotado - Requiere reposición urgente');
 /*!40000 ALTER TABLE `alerta_stock` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -155,7 +156,7 @@ CREATE TABLE `devolucion` (
   KEY `idCompra` (`idCompra`),
   CONSTRAINT `dev_ibfk_1` FOREIGN KEY (`dniCliente`) REFERENCES `cliente` (`dni`),
   CONSTRAINT `dev_ibfk_2` FOREIGN KEY (`idCompra`) REFERENCES `compra` (`idCompra`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -164,6 +165,7 @@ CREATE TABLE `devolucion` (
 
 LOCK TABLES `devolucion` WRITE;
 /*!40000 ALTER TABLE `devolucion` DISABLE KEYS */;
+INSERT INTO `devolucion` VALUES (1,7,'10000001','2025-10-20 10:30:00',8999),(2,8,'12345678','2025-10-22 14:15:00',11999),(3,10,'10000001','2025-10-25 11:45:00',15999),(4,12,'23456789','2025-10-28 16:20:00',19999),(5,14,'12345678','2025-11-01 09:50:00',14999),(6,64,'10000010','2025-11-10 13:30:00',19500);
 /*!40000 ALTER TABLE `devolucion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -184,7 +186,7 @@ CREATE TABLE `devolucion_detalle` (
   KEY `idCompraDetalle` (`idCompraDetalle`),
   CONSTRAINT `dd_ibfk_1` FOREIGN KEY (`idDevolucion`) REFERENCES `devolucion` (`idDevolucion`),
   CONSTRAINT `dd_ibfk_2` FOREIGN KEY (`idCompraDetalle`) REFERENCES `compra_detalle` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -193,6 +195,7 @@ CREATE TABLE `devolucion_detalle` (
 
 LOCK TABLES `devolucion_detalle` WRITE;
 /*!40000 ALTER TABLE `devolucion_detalle` DISABLE KEYS */;
+INSERT INTO `devolucion_detalle` VALUES (4,1,8,1),(5,2,9,1),(6,3,10,1),(7,4,12,1),(8,5,14,1),(9,6,90,1);
 /*!40000 ALTER TABLE `devolucion_detalle` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -517,4 +520,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-11-15 17:27:28
+-- Dump completed on 2025-11-16 14:06:48
