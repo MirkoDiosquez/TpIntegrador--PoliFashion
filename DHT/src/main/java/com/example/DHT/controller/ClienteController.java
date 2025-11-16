@@ -1,21 +1,7 @@
-package com.example.DHT.controller;
-import com.example.DHT.DTO.ReseniaDTO;
-import com.example.DHT.DTO.historial.HistorialDTO;
-import com.example.DHT.model.*;
-import com.example.DHT.service.ClienteService;
-import com.example.DHT.service.ReseniaService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-
 @RestController
 @RequestMapping("/api/cliente")
 public class ClienteController {
+
     @Autowired
     private ClienteService clienteService;
     @Autowired
@@ -34,13 +20,13 @@ public class ClienteController {
 
     @GetMapping("/{id}/historial")
     public ResponseEntity<?> getHistorialDelCliente(@PathVariable("id") String clienteDni) {
-       try {
-           HistorialDTO historial = clienteService.getHistorial(clienteDni);
-           return ResponseEntity.ok(historial);
-       }
-       catch (RuntimeException e) {
-           return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
-       }
+        try {
+            HistorialDTO historial = clienteService.getHistorial(clienteDni);
+            return ResponseEntity.ok(historial);
+        }
+        catch (RuntimeException e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+        }
     }
 
     @GetMapping("/{dni}/resenias")
@@ -48,6 +34,24 @@ public class ClienteController {
         try {
             List<ReseniaDTO> resenias = reseniaService.getReseniasPorCliente(dni);
             return ResponseEntity.ok(resenias);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(404).body(e.getMessage());
+        }
+    }
+
+    @GetMapping("/{id}/puntos")
+    public ResponseEntity<?> getPuntosDelCliente(@PathVariable("id") String clienteDni) {
+        try {
+            return ResponseEntity.ok(clienteService.obtenerPuntosYBeneficios(clienteDni));
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(404).body(e.getMessage());
+        }
+    }
+
+    @GetMapping("/{id}/estadisticas/marcas")
+    public ResponseEntity<?> getEstadisticasMarcas(@PathVariable("id") String clienteDni) {
+        try {
+            return ResponseEntity.ok(clienteService.obtenerEstadisticasMarcas(clienteDni));
         } catch (RuntimeException e) {
             return ResponseEntity.status(404).body(e.getMessage());
         }

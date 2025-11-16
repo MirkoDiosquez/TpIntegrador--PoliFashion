@@ -45,5 +45,4 @@ public class CompraController {
         List<Map<String, Object>> ranking = compraService.obtenerRankingPrendas(desde, hasta);
         return ResponseEntity.ok(ranking);
     }
-
 }

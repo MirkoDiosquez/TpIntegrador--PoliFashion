@@ -1,18 +1,6 @@
-package com.example.DHT.service;
-
-import com.example.DHT.DTO.historial.HistorialCompraDTO;
-import com.example.DHT.DTO.historial.HistorialDTO;
-import com.example.DHT.DTO.historial.HistorialDevolucionDTO;
-import com.example.DHT.model.*;
-import com.example.DHT.repository.*;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.stream.Collectors;
-
 @Service
 public class ClienteService {
+
     @Autowired
     private DevolucionRepository devolucionRepository;
     @Autowired
@@ -48,5 +36,59 @@ public class ClienteService {
         historialFinal.setDevoluciones(devolucionesDTO);
 
         return historialFinal;
+    }
+
+    public Map<String, Object> obtenerPuntosYBeneficios(String clienteDni) {
+
+        Cliente cliente = clienteRepository.findById(clienteDni)
+                .orElseThrow(() -> new RuntimeException("Cliente no existe"));
+
+        int puntos = cliente.getPuntos();
+        String beneficioAplicable = determinarBeneficio(puntos);
+
+        Map<String, Object> respuesta = new HashMap<>();
+        respuesta.put("clienteDni", clienteDni);
+        respuesta.put("puntos", puntos);
+        respuesta.put("beneficioAplicable", beneficioAplicable);
+
+        return respuesta;
+    }
+
+    private String determinarBeneficio(int puntos) {
+        if (puntos >= 5000) return "Envío gratis + 20% de descuento";
+        if (puntos >= 3000) return "15% de descuento";
+        if (puntos >= 1500) return "10% de descuento";
+        if (puntos >= 500)  return "5% de descuento";
+        return "Sin beneficios por el momento";
+    }
+    
+    public Map<String, Integer> obtenerEstadisticasMarcas(String clienteDni) {
+
+        clienteRepository.findById(clienteDni)
+                .orElseThrow(() -> new RuntimeException("Cliente no existe"));
+
+        // Todas las compras del cliente
+        List<Compra> compras = compraRepository.findAllByClienteDni(clienteDni);
+
+        // Mapa (marca → cantidad de prendas compradas)
+        Map<String, Integer> estadisticas = new HashMap<>();
+
+        for (Compra compra : compras) {
+            List<CompraDetalle> detalles = compraDetalleRepository.findByCompra_Id(compra.getIdCompra());
+
+            for (CompraDetalle detalle : detalles) {
+
+                // Marca de la prenda comprada
+                String marca = detalle.getVariante().getPrenda().getMarca().getNombreMarca();
+
+                // Cantidad comprada de esa variante
+                int cantidad = detalle.getCantidad();
+
+                // Acumulamos en el mapa
+                estadisticas.put(marca, estadisticas.getOrDefault(marca, 0) + cantidad);
+            }
+        }
+
+        return estadisticas;
     }
 }
