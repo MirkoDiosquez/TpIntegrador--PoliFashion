@@ -7,10 +7,11 @@ public class ItemComprado {
     private int cantidad;
     private String nombreMarca;
     private double precioUnit;
+    private String fotoPrincipal;
 
     public ItemComprado(){}
     public ItemComprado(CompraDetalle compraDetalle) {
-        this.nombreVariantePrenda = compraDetalle.getVariantePrenda().getPrenda().getDescripcion();
+        this.nombreVariantePrenda = compraDetalle.getVariantePrenda().getPrenda().getNombre();
         this.cantidad = compraDetalle.getCantidad();
         this.nombreMarca = compraDetalle.getVariantePrenda().getPrenda().getMarca().getNombreMarca();
         this.precioUnit = compraDetalle.getPrecioUnitario();
@@ -46,5 +47,13 @@ public class ItemComprado {
 
     public void setPrecioUnit(double precioUnit) {
         this.precioUnit = precioUnit;
+    }
+
+    public String getFotoPrincipal() {
+        return fotoPrincipal;
+    }
+
+    public void setFotoPrincipal(String fotoPrincipal) {
+        this.fotoPrincipal = fotoPrincipal;
     }
 }

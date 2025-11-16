@@ -14,8 +14,9 @@ public class ClienteDTO
     private GeneroUsuario genero ;
     private String email;
     private String contrasenia;
+    private String fotoPerfil;
 
-    public ClienteDTO(String dni, String nombre, String apellido, LocalDate fechaNacimiento, String genero, String email, String contrasenia) {
+    public ClienteDTO(String dni, String nombre, String apellido, LocalDate fechaNacimiento, String genero, String email, String contrasenia, String fotoPerfil) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -24,6 +25,7 @@ public class ClienteDTO
         this.genero = convertirStringAlEnum(genero);
         this.email = email;
         this.contrasenia = contrasenia;
+        this.fotoPerfil = fotoPerfil;
     }
 
     public GeneroUsuario convertirStringAlEnum(String genero){

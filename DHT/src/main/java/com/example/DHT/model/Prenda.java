@@ -42,6 +42,12 @@ public class Prenda {
     @OneToMany(mappedBy = "prenda", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<VariantePrenda> variantes;
 
+    @Column(name="fotoPrincipal")
+    private String fotoPrincipal;
+
+    @Column(name="foto2")
+    private String foto2;
+
     public Prenda() {    }
 
     public Prenda(Marca marca, Tela tela, Tipo tipo, String nombre, GeneroPrenda genero, Double precio, String descripcion) {
@@ -52,6 +58,18 @@ public class Prenda {
         this.genero = genero;
         this.precio = precio;
         this.descripcion = descripcion;
+    }
+
+    public Prenda(Marca marca, Tela tela, Tipo tipo, String nombre, GeneroPrenda genero, Double precio, String descripcion, String foto2, String fotoPrincipal) {
+        this.marca = marca;
+        this.tela = tela;
+        this.tipo = tipo;
+        this.nombre = nombre;
+        this.genero = genero;
+        this.precio = precio;
+        this.descripcion = descripcion;
+        this.fotoPrincipal = fotoPrincipal;
+        this.foto2 = foto2;
     }
 
     public Integer getIdPrenda() {
@@ -124,5 +142,21 @@ public class Prenda {
 
     public void setVariantes(List<VariantePrenda> variantes) {
         this.variantes = variantes;
+    }
+
+    public String getFotoPrincipal() {
+        return fotoPrincipal;
+    }
+
+    public void setFotoPrincipal(String fotoPrincipal) {
+        this.fotoPrincipal = fotoPrincipal;
+    }
+
+    public String getFoto2() {
+        return foto2;
+    }
+
+    public void setFoto2(String foto2) {
+        this.foto2 = foto2;
     }
 }

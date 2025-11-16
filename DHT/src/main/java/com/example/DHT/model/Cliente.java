@@ -34,6 +34,9 @@ public class Cliente {
     @Column(name = "contrasenia", nullable = false, length = 50)
     private String contrasenia;
 
+    @Column(name = "fotoPerfil")
+    private String fotoPerfil;
+
 
     public Cliente() {
     }

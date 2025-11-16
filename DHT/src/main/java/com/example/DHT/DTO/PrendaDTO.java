@@ -15,6 +15,8 @@ public class PrendaDTO {
     private Double precio;
     private String descripcion;
     private List<Variante> variantes;
+    private String fotoPrincipal;
+    private String foto2;
 
     public PrendaDTO() {
         this.variantes = new ArrayList<>();
@@ -37,6 +39,9 @@ public class PrendaDTO {
                     vp.getStockMinimo()
             ));
         }
+
+        this.fotoPrincipal = prenda.getFotoPrincipal();
+        this.foto2 = prenda.getFoto2();
     }
 
     public Integer getIdTela() {
@@ -95,5 +100,19 @@ public class PrendaDTO {
         this.descripcion = descripcion;
     }
 
+    public String getFotoPrincipal() {
+        return fotoPrincipal;
+    }
 
+    public void setFotoPrincipal(String fotoPrincipal) {
+        this.fotoPrincipal = fotoPrincipal;
+    }
+
+    public String getFoto2() {
+        return foto2;
+    }
+
+    public void setFoto2(String foto2) {
+        this.foto2 = foto2;
+    }
 }

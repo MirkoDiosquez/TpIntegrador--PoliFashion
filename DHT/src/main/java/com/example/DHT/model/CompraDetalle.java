@@ -12,7 +12,7 @@ public class CompraDetalle {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "idCompra")
+    @JoinColumn(name = "idCompra", referencedColumnName = "idCompra", nullable = false)
     private Compra compra;
 
     @ManyToOne

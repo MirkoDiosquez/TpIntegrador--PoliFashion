@@ -24,6 +24,11 @@ public class ClienteService {
     @Autowired
     private CompraDetalleRepository compraDetalleRepository;
 
+    public Cliente getCliente(String clienteDni) {
+        return clienteRepository.findById(clienteDni)
+                .orElseThrow(() -> new RuntimeException("Cliente no existe"));
+    }
+
     public HistorialDTO getHistorial(String clienteDni){
         clienteRepository.findById(clienteDni).orElseThrow(() -> new RuntimeException("Cliente no existe"));
 
