@@ -285,7 +285,7 @@
 
 /* ========== SECCIÓN PRODUCTOS ========== */
 .seccionProductos {
-    padding: 5rem 0;
+    padding: 3rem 0;
     background-color: var(--color-fondo);
 }
 
@@ -375,6 +375,10 @@
     color: var(--color-titulo); 
 }
 
+.beneficioItem i:hover {
+    color: var(--color-accent); 
+}
+
 .textoBeneficio {
     font-size: 0.9rem;
     color: #333;
@@ -444,7 +448,7 @@
     gap: 1rem;
 }
 
-.tarjetaResenaTicker {
+.tarjetaTicker {
     min-width: 250px; 
     max-width: 250px; 
     min-height: 180px;
@@ -700,7 +704,7 @@
         font-size: 2rem;
     }
     
-    .tarjetaResenaTicker {
+    .tarjetaTicker {
         min-width: 280px;
     }
 
