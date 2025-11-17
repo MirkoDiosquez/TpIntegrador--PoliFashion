@@ -1,3 +1,17 @@
+package com.example.DHT.service;
+
+import com.example.DHT.DTO.*;
+import com.example.DHT.DTO.historial.*;
+import com.example.DHT.model.*;
+import com.example.DHT.repository.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 @Service
 public class ClienteService {
 
@@ -74,12 +88,12 @@ public class ClienteService {
         Map<String, Integer> estadisticas = new HashMap<>();
 
         for (Compra compra : compras) {
-            List<CompraDetalle> detalles = compraDetalleRepository.findByCompra_Id(compra.getIdCompra());
+            List<CompraDetalle> detalles = compraDetalleRepository.findByCompra_IdCompra(compra.getIdCompra());
 
             for (CompraDetalle detalle : detalles) {
 
                 // Marca de la prenda comprada
-                String marca = detalle.getVariante().getPrenda().getMarca().getNombreMarca();
+                String marca = detalle.getVariantePrenda().getPrenda().getMarca().getNombreMarca();
 
                 // Cantidad comprada de esa variante
                 int cantidad = detalle.getCantidad();

@@ -1,3 +1,17 @@
+package com.example.DHT.controller;
+
+import com.example.DHT.DTO.*;
+import com.example.DHT.DTO.historial.HistorialDTO;
+import com.example.DHT.model.*;
+import com.example.DHT.service.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/cliente")
 public class ClienteController {

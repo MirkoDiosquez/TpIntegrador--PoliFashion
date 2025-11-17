@@ -15,6 +15,7 @@ public class ItemComprado {
         this.cantidad = compraDetalle.getCantidad();
         this.nombreMarca = compraDetalle.getVariantePrenda().getPrenda().getMarca().getNombreMarca();
         this.precioUnit = compraDetalle.getPrecioUnitario();
+        this.fotoPrincipal = compraDetalle.getVariantePrenda().getPrenda().getFotoPrincipal();
     }
 
     public String getNombreVariantePrenda() {
