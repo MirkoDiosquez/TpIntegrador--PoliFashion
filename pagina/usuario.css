@@ -24,21 +24,28 @@ body {
     color: #333;
 }
 
-.titulo, .tituloSeccionUsuario, h1, h2, h3, h4, h5 {
+.titulo, h1, h2, h3, h4, h5 {
     font-family: var(--fuente-titulo);
     font-weight: 300;
     letter-spacing: 1.2px;
     color: var(--color-titulo);
 }
 
+.momo-trust-display-regular {
+  font-family: "Momo Trust Display", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+/* ----- NAVBAR ----- */
 .navBar {
     background-color: var(--color-fondo);
     padding: 1rem 2rem;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    position: sticky !important;
 }
 
-.navbar-brand img {
-    width: 80px;
+.navbar-brand img{
+    width: 80px; 
     height: auto;
 }
 
@@ -48,41 +55,99 @@ body {
     font-weight: 500;
 }
 
-.botonSubmit, .btn-login {
-    background-color: var(--color-titulo);
+.botonSubmit {
+    background-color: #2f4550;
     color: white;
     border-radius: 25px;
     padding: 0.5rem 1.5rem;
     font-weight: 600;
     border: none;
-    font-size: 0.9rem;
-    transition: var(--transicion);
-    cursor: pointer;
+    font-size: 0.9rem; 
+    transition: background-color 0.3s ease;
 }
 
-.botonSubmit:hover, .btn-login:hover {
+.botonSubmit:hover {
     background-color: #333;
+}
+
+.dropdownTexto .textoDrop{
+    color: #2f4550 !important;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.dropdownTexto .textoDrop:hover {
+    color: #000 !important; 
 }
 
 .dropdown-menu {
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     border: none;
-    padding: 0.5rem 0;
+    padding: 0.5rem 0; 
 }
 
 .dropdown-item {
-    color:#333;
+    color: #333;
     padding: 0.75rem 1rem;
     font-size: 0.95rem;
-    transition: var(--transicion);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .dropdown-item:hover {
     background-color: #e9ecef;
-    color: black;
+    color: #000;
 }
 
+.tickerSuperior {
+    background-color: var(--color-secondary);
+    color: #fff;
+    overflow: hidden;
+    padding: 0.5rem 0;
+    font-weight: 600;
+    font-size: 0.75rem;
+}
+
+.tickerTrack {
+    display: flex;
+    animation: scroll-ticker 20s linear infinite;
+    white-space: nowrap;
+}
+
+.tickerItem {
+    padding: 0 3rem;
+    display: inline-block;
+}
+
+.btn-login{
+    background-color: var(--color-titulo);
+    padding: 0.4rem 1.2rem; 
+    border-radius: var(--radio-border);
+    margin-left: 1rem;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-login a{
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+}
+
+.d-flex .bi-cart {
+    font-size: 1.5rem; 
+    color: var(--color-dark);
+    margin-right: 0.5rem;
+}
+
+.tituloSeccionUsuario{
+    font-family: "Momo Trust Display", sans-serif;
+}
+
+@keyframes scroll-ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
 /* ========== PERFIL DE USUARIO ========== */
 .contenedorPerfil {
     max-width: 1200px;
@@ -112,7 +177,8 @@ body {
     border: 3px solid var(--color-titulo);
 }
 
-.datosUsuario {
+.datosUsuario, #nombreUsuario{
+    font-family:"Momo Trust Display";
     flex-grow: 1;
 }
 
@@ -242,7 +308,7 @@ body {
 }
 
 .encabezadoResenas {
-    display: flex;
+    display: inliflex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2rem;

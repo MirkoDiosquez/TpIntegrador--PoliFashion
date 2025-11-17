@@ -102,6 +102,28 @@ body {
     color: #000;
 }
 
+.btn-login{
+    background-color: var(--titulo);
+    color: white;
+    padding: 0.4rem 1.2rem; 
+    border-radius: 12px;
+    margin-left: 1rem;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-login a{
+    text-decoration: none;
+    color: white;
+    letter-spacing: 0.2px;
+}
+
+.d-flex .bi-cart {
+    font-size: 1.5rem; 
+    color: var(--color-dark);
+    margin-right: 0.5rem;
+}
+
 /* ------------------------------------ */
 .contenedor{
 background-color: var(--fondo); 

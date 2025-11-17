@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DHT Crew</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://unpkg.com/phosphor-icons/css/index.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>@import url('https://fonts.googleapis.com/css2?family=BBH+Sans+Hegarty&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');</style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="tickerSuperior">
+        <div class="tickerTrack">
+            <span class="tickerItem">HASTA 12 CUOTAS SIN INTERÉS</span>
+            <span class="tickerItem">ENVÍO GRATIS A CABA</span>
+            <span class="tickerItem">LAS MEJORES OFERTAS</span>
+            <span class="tickerItem">HASTA 12 CUOTAS SIN INTERÉS</span>
+            <span class="tickerItem">ENVÍO GRATIS A CABA</span>
+            <span class="tickerItem">LAS MEJORES OFERTAS</span>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navBar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="logo.png" alt="dht crew logo"/></a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown dropdownTexto">
+                        <a class="nav-link dropdown-toggle textoDrop" href="#" role="button" data-bs-toggle="dropdown">Tienda</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Todos los productos</a></li>
+                            <li><a class="dropdown-item" href="#">Novedades</a></li>
+                            <li><a class="dropdown-item" href="#">Ofertas</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown dropdownTexto">
+                        <a class="nav-link dropdown-toggle textoDrop" href="#" role="button" data-bs-toggle="dropdown"> Marcas </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Nike</a></li>
+                            <li><a class="dropdown-item" href="#">Adidas</a></li>
+                            <li><a class="dropdown-item" href="#">Puma</a></li>
+                            <li><a class="dropdown-item" href="#">Kiech</a></li>
+                            <li><a class="dropdown-item" href="#">King Of The Kongo</a></li>
+                            <li><a class="dropdown-item" href="#">Vancouver</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown dropdownTexto">
+                        <a class="nav-link dropdown-toggle textoDrop" href="#" role="button" data-bs-toggle="dropdown"> Ayuda </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Sobre Nosotros</a></li>
+                            <li><a class="dropdown-item" href="#">FAQ</a></li>
+                            <li><a class="dropdown-item" href="#">Contacto</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="d-flex align-items-center">
+                <i class="bi bi-cart"></i> 
+                <button class="btn-login"><a href="login.html">Ingresar</a></button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="seccionHero">
+        <div class="contenedorHero">
+            <h1 class="tituloHero">DHT CREW.</h1>
+            <p class="subtituloHero">Moda urbana de autor, directo de la pasarela a tu guardarropa</p>
+        </div>
+    </section>
+
+    <section class="seccionNewIn">
+        <div class="container contenedorNewIn">
+            <h2 class="tituloSeccion">NEW IN!</h2>
+            
+            <div id="carouselNewIn" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner carruselInterior">
+                    <div class="carousel-item active">
+                        <div class="row g-4 justify-content-center">
+                            <div class="col-10 col-md-4">
+                                <div class="tarjetaProductoDestacado">
+                                    <div class="imagenProductoDestacado"></div>
+                                    <div class="infoProductoDestacado">
+                                        <p class="marcaDestacada">ADIDAS</p>
+                                        <h3 class="nombreDestacado">Pantalon Tyshawn</h3>
+                                        <p class="precioDestacado">$57.800</p>
+                                        <div class="coloresDisponibles">
+                                            <span class="colorOpcion" style="background-color: #f0f0f0;"></span>
+                                            <span class="colorOpcion" style="background-color: #999;"></span>
+                                            <span class="colorOpcion" style="background-color: #333;"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row g-4 justify-content-center">
+                            <div class="col-10 col-md-4">
+                                <div class="tarjetaProductoDestacado">
+                                    <div class="imagenProductoDestacado"></div>
+                                    <div class="infoProductoDestacado">
+                                        <p class="marcaDestacada">NIKE</p>
+                                        <h3 class="nombreDestacado">Buzo Oversized</h3>
+                                        <p class="precioDestacado">$62.500</p>
+                                        <div class="coloresDisponibles">
+                                            <span class="colorOpcion" style="background-color: #000;"></span>
+                                            <span class="colorOpcion" style="background-color: #1a5490;"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row g-4 justify-content-center">
+                            <div class="col-10 col-md-4">
+                                <div class="tarjetaProductoDestacado">
+                                    <div class="imagenProductoDestacado"></div>
+                                    <div class="infoProductoDestacado">
+                                        <p class="marcaDestacada">KOTK</p>
+                                        <h3 class="nombreDestacado">Buzo Xongo Unisex</h3>
+                                        <p class="precioDestacado">$87.800</p>
+                                        <div class="coloresDisponibles">
+                                            <span class="colorOpcion" style="background-color: #000;"></span>
+                                            <span class="colorOpcion" style="background-color: #a0522d;"></span>
+                                            <span class="colorOpcion" style="background-color: #e6e6fa;"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev controlCarrusel" type="button" data-bs-target="#carouselNewIn" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </button>
+                <button class="carousel-control-next controlCarrusel" type="button" data-bs-target="#carouselNewIn" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="seccionProductos">
+        <div class="container contenedorProductos">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <img src="home/conoceProds.png" class="imagenProductosGrande"/>
+                </div>
+                <div class="col-md-4">
+                    <h2 class="tituloGrande">CONOCE TODOS NUESTROS PRODUCTOS</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="seccionMarcas">
+        <div class="container contenedorMarcas">
+            <div class="row g-4">
+                <div class="col-12 col-md-4">
+                    <div class="tarjetaMarca">
+                        <img class="imagenMarca" src="home/kiech.png"/>
+                        <h3 class="nombreMarca">KIECH</h3>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="tarjetaMarca">
+                        <img class="imagenMarca" src="home/vancouver.png"/>
+                        <h3 class="nombreMarca">VANCOUVER</h3>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="tarjetaMarca">
+                        <img class="imagenMarca" src="home/puma.png"/>
+                        <h3 class="nombreMarca">PUMA</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="seccionBeneficios">
+        <div class="container contenedorBeneficios">
+            <div class="row g-4 text-center">
+                <div class="col-6 col-md-3">
+                    <div class="beneficioItem">
+                        <div class="iconoBeneficio"><i class="ph-light ph-truck"></i></div>
+                        <p class="textoBeneficio">Envío gratis a CABA y compras de + $80.000</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="beneficioItem">
+                        <div class="iconoBeneficio"><i class="ph-light ph-arrows-counter-clockwise"></i></div>
+                        <p class="textoBeneficio">Devolución GRATIS con 30 días máximo</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="beneficioItem">
+                        <div class="iconoBeneficio"><i class="ph-light ph-shield-check"></i></div>
+                        <p class="textoBeneficio">Productos de calidad con garantía</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="beneficioItem">
+                        <div class="iconoBeneficio"><i class="ph-light ph-headset"></i></div>
+                        <p class="textoBeneficio">Atención al cliente 24/7</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="seccionCategorias">
+        <div class="container contenedorCategorias">
+            <div class="row g-4">
+                <div class="col-12 col-md-6">
+                    <div class="tarjetaCategoria">
+                        <img class="imagenCategoria" src="home/png.avif"/>
+                        <h3 class="nombreCategoria">HOMBRE</h3>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="tarjetaCategoria">
+                        <img class="imagenCategoria" src="home/mujer.avif"/>
+                        <h3 class="nombreCategoria">MUJER</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="seccionReseniasTicker">
+        <div class="tickerResenias">
+            <div class="trackResenias">
+                <div class="tarjetaResenaTicker">
+                    <div class="estrellasResena">⭐⭐⭐⭐⭐</div>
+                    <p class="textoResenaTicker">Tardó en llegar más que esperaba pero valió la pena. Encontré todo lo que estaba buscando acá</p>
+                    <p class="autorResena">Olivia S.</p>
+                </div>
+                <div class="tarjetaResenaTicker">
+                    <div class="estrellasResena">⭐⭐⭐⭐⭐</div>
+                    <p class="textoResenaTicker">Aproveché las ofertas del viernes pasado y me llegaron dos pantalones preciosos</p>
+                    <p class="autorResena">Hernan D.</p>
+                </div>
+                <div class="tarjetaResenaTicker">
+                    <div class="estrellasResena">⭐⭐⭐⭐⭐</div>
+                    <p class="textoResenaTicker">Tienen las marcas que me gustan con precios que varian. Compré un buzo y la calidad del algodón es incomparable</p>
+                    <p class="autorResena">Martin H.</p>
+                </div>
+                <div class="tarjetaResenaTicker">
+                    <div class="estrellasResena">⭐⭐⭐⭐⭐</div>
+                    <p class="textoResenaTicker">La calidad de la remera es excelente no se achica ni pierde color y el precio es justo</p>
+                    <p class="autorResena">Carla F.</p>
+                </div>
+                <div class="tarjetaResenaTicker">
+                    <div class="estrellasResena">⭐⭐⭐⭐⭐</div>
+                    <p class="textoResenaTicker">Tardó en llegar más que esperaba pero valió la pena. Encontré todo lo que estaba buscando acá</p>
+                    <p class="autorResena">Olivia S.</p>
+                </div>
+                <div class="tarjetaResenaTicker">
+                    <div class="estrellasResena">⭐⭐⭐⭐⭐</div>
+                    <p class="textoResenaTicker">Aproveché las ofertas del viernes pasado y me llegaron dos pantalones preciosos</p>
+                    <p class="autorResena">Hernan D.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="seccionTendencias">
+        <div class="container contenedorTendencias">
+            <div class="row align-items-center columnas">
+                <div class="col-md-6">
+                    <img class="imagenTendencias"src="home/trends.png"/>
+                </div>
+                <div class="col-md-6 seccionText">
+                    <h2 class="tituloTendencias">Tendencias.</h2>
+                    <p class="descripcionTendencias">Conocé lo más destacado de la temporada, looks inspirados en las grandes pasarelas urbanas y la cultura urbana global.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <section class="seccionFAQs">
+        <div class="container contenedorFAQs">
+            <div class="row align-items-center columnas">
+                <div class="col-md-6 seccionText">
+                    <h2 class="tituloFAQs">FAQs.</h2>
+                    <p class="descripcionFAQs">Conocé lo más destacado de la temporada, looks inspirados en las grandes pasarelas urbanas y la cultura urbana global.</p>
+                </div>
+                <div class="col-md-6">
+                    <img class="imagenFAQs" src="home/faqs.png"/>
+                </div>
+            </div>
+        </div>
+    </section>
+
+       <footer class="footer contFooter">
+        <div class="container contenedorFooter">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="newsletter-section seccionNewsletter">
+                        <h3 class="titulo">Subscribite a nuestro newsletter & gana 15% de descuento</h3>
+                        <p style="font-size: 0.85rem; color: #666;">Únete a nuestro newsletter, estás esperando recibir correos con información sobre los últimos eventos para que no te pierdas nada!</p>
+                        <div class="newsletter-form formNewsletter">
+                            <input type="email" placeholder="Ingresá tu email" class="form-control">
+                            <button>→</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="row footer-links">
+                        <div class="col-6 col-md-3">
+                            <h5  class="titulo">PRODUCTOS</h5>
+                            <ul>
+                                <li><a href="#">Mujer</a></li>
+                                <li><a href="#">Hombre</a></li>
+                                <li><a href="#">New In</a></li>
+                                <li><a href="#">Tienda</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <h5  class="titulo">DHT CREW</h5>
+                            <ul>
+                                <li><a href="#">Sobre nosotros</a></li>
+                                <li><a href="#">FAQ</a></li>
+                                <li><a href="#">Contáctanos</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <h5 class="titulo">REDES</h5>
+                            <ul>
+                                <li><a href="#">Instagram</a></li>
+                                <li><a href="#">TwittenX.com</a></li>
+                                <li><a href="#">Facebook</a></li>
+                                <li><a href="#">Tiktok</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <h5 class="titulo">LEGAL</h5>
+                            <ul>
+                                <li><a href="#">Términos y condiciones</a></li>
+                                <li><a href="#">Devoluciones</a></li>
+                                <li><a href="#">Política de privacidad</a></li>
+                                <li><a href="#">404</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ola-ticker-contenedor">
+                <div class="ola-ticker-track">
+                    <img src="olaa.png"> 
+                    <img src="olaa.png">
+                </div>
+            </div>
+
+            <div class="copyright">© DHT, 2025</div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
