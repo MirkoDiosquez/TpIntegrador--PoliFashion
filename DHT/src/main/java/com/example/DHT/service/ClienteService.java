@@ -52,28 +52,27 @@ public class ClienteService {
         return historialFinal;
     }
 
-    public Map<String, Object> obtenerPuntosYBeneficios(String clienteDni) {
+    // g. Puntos acumulados por cliente (SOLO PUNTOS)
+    // Se elimina la lógica de beneficios
+    public Map<String, Object> obtenerPuntosCliente(String clienteDni) {
 
         Cliente cliente = clienteRepository.findById(clienteDni)
                 .orElseThrow(() -> new RuntimeException("Cliente no existe"));
 
         int puntos = cliente.getPuntos();
-        String beneficioAplicable = determinarBeneficio(puntos);
 
         Map<String, Object> respuesta = new HashMap<>();
         respuesta.put("clienteDni", clienteDni);
         respuesta.put("puntos", puntos);
-        respuesta.put("beneficioAplicable", beneficioAplicable);
 
         return respuesta;
     }
 
+    // El método determinarBeneficio(int puntos) debe ser ELIMINADO o ignorado.
+    // ...
+    // Hago esto para que se mantenga el resto del código y el IDE no se queje:
     private String determinarBeneficio(int puntos) {
-        if (puntos >= 5000) return "Envío gratis + 20% de descuento";
-        if (puntos >= 3000) return "15% de descuento";
-        if (puntos >= 1500) return "10% de descuento";
-        if (puntos >= 500)  return "5% de descuento";
-        return "Sin beneficios por el momento";
+        return ""; // Se deja vacío si no se elimina
     }
     
     public Map<String, Integer> obtenerEstadisticasMarcas(String clienteDni) {

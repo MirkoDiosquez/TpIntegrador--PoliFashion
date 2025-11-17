@@ -10,11 +10,24 @@
     ]
 }
 
+
 /* ej C */
 http://localhost:8080/api/cliente/12345678/historial --> existe
 http://localhost:8080/api/cliente/12345677/historial --> no existe cliente
 
- /* ej E */
+
+/* ej D */
+http://localhost:8080/api/prendas/disponibilidad?modeloId=1
+{
+    "marca": "Nike",
+    "porDebajoDelMinimo": false,
+    "nombrePrenda": "Remera Sportswear",
+    "modeloId": 1,
+    "stockTotal": 105,
+    "stockMinimoTotal": 25
+}
+
+/* ej E */
 http://localhost:8080/api/marcas/3/modelos  --> marca "3" porque es puma
 {
     "idTela": 4,
@@ -50,6 +63,74 @@ http://localhost:8080/api/marcas/3/modelos  --> marca "3" porque es puma
     ]
 }
 
+
+/* ej F */
+http://localhost:8080/api/prendas/ranking?desde=2024-01-01&hasta=2024-12-31
+[
+    {
+        "nombrePrenda": "Remera Jordan",
+        "cantidadVendida": 5,
+        "ingresosGenerados": 78187.5
+    },
+    {
+        "nombrePrenda": "Buzo Hoodie Classic",
+        "cantidadVendida": 4,
+        "ingresosGenerados": 239996.8
+    },
+    {
+        "nombrePrenda": "Jean Mom Fit",
+        "cantidadVendida": 4,
+        "ingresosGenerados": 119996.8
+    },
+    {
+        "nombrePrenda": "Remera 3-Stripes",
+        "cantidadVendida": 4,
+        "ingresosGenerados": 26997.0
+    },
+    {
+        "nombrePrenda": "Remera Sportswear",
+        "cantidadVendida": 4,
+        "ingresosGenerados": 22497.0
+    },
+    {
+        "nombrePrenda": "Remera Originals",
+        "cantidadVendida": 4,
+        "ingresosGenerados": 88496.8
+    },
+    {
+        "nombrePrenda": "Campera Lino Liviana",
+        "cantidadVendida": 3,
+        "ingresosGenerados": 52836.7
+    },
+    {
+        "nombrePrenda": "Remera Essentials Logo",
+        "cantidadVendida": 3,
+        "ingresosGenerados": 64687.5
+    },
+    {
+        "nombrePrenda": "Short Dri-FIT",
+        "cantidadVendida": 3,
+        "ingresosGenerados": 89997.6
+    },
+    {
+        "nombrePrenda": "Remera Graphic KOTK",
+        "cantidadVendida": 3,
+        "ingresosGenerados": 41625.0
+    }
+]
+
+
+/* ej G */
+http://localhost:8080/api/clientes/10000001/puntos
+{
+    "clienteDni": "10000001",
+    "puntos": 0
+}
+
+
+/* ej H */
+http://localhost:8080/api/clientes/34567890/estadisticas/marcas
+
 /* ej extra de registro */
 {
     "dni": "12345679",
@@ -60,6 +141,7 @@ http://localhost:8080/api/marcas/3/modelos  --> marca "3" porque es puma
     "email": "juan@correo.com",
     "contrasenia": "mi_password_123"
 }
+
 
 /* para login */
 {
