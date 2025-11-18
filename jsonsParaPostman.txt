@@ -1,3 +1,16 @@
+/* ej A */
+http://localhost:8080/api/compras
+{
+    "clienteDni": "23456789",
+    "idMetodo": 2,
+    "items": [
+        { 
+            "idVariantePrenda": 106,   
+            "cantidad": 3
+        }
+    ]
+}
+
 /* ej B */
 {
     "clienteDni": "12345678",
