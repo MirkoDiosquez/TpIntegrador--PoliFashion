@@ -40,11 +40,12 @@ body {
     color: #333;
 }
 
-/* ------------------------ */
+/* ----- NAVBAR ----- */
 .navBar {
-    background-color: var(--fondo);
+    background-color: var(--color-fondo);
     padding: 1rem 2rem;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    position: sticky !important;
 }
 
 .navbar-brand img{
@@ -101,12 +102,64 @@ body {
     background-color: #e9ecef;
     color: #000;
 }
+¿
+.navbar-toggler {
+    border: none !important; 
+    padding: 0 !important;   
+    box-shadow: none !important; 
+}
+
+.navbar-toggler:focus {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.ph-user {
+    font-size: 1.5rem;
+    color: var(--color-dark);
+    cursor: pointer;
+}
+
+.navbar > .container-fluid {
+    margin-top: 0 !important;
+}
+
+.seccionSinMargen{
+    margin-top: 0 !important;
+}
+
+.navbar > .container-fluid {
+    flex-wrap: wrap; 
+}
+
+@media (min-width: 992px) {
+    .navbar > .container-fluid {
+        flex-wrap: nowrap !important; 
+    }
+}
+
+.ph-user {
+    font-size: 1.5rem;
+    color: var(--color-dark);
+    cursor: pointer;
+}
+
+.navbar-toggler {
+    border: none !important; 
+    padding: 0 !important;   
+    box-shadow: none !important; 
+}
+
+.navbar-toggler:focus {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
 
 .btn-login{
     background-color: var(--titulo);
-    color: white;
     padding: 0.4rem 1.2rem; 
-    border-radius: 12px;
+    border-radius:12px;
     margin-left: 1rem;
     border: none;
     cursor: pointer;
@@ -115,14 +168,15 @@ body {
 .btn-login a{
     text-decoration: none;
     color: white;
-    letter-spacing: 0.2px;
+    font-weight: 500;
 }
 
 .d-flex .bi-cart {
     font-size: 1.5rem; 
-    color: var(--color-dark);
+    color: black;
     margin-right: 0.5rem;
 }
+
 
 /* ------------------------------------ */
 .contenedor{

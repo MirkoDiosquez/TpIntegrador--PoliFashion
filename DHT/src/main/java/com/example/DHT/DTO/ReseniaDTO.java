@@ -6,12 +6,14 @@ import java.time.LocalDate;
 
 public class ReseniaDTO {
     private String nombrePrenda;
+    private String nombreCliente;
     private int estrellas;
     private String comentario;
     private LocalDate fecha;
     private String fotoPrenda;
 
     public ReseniaDTO(Resenia resenia) {
+        this.nombreCliente = resenia.getCliente().getNombre() + " " + resenia.getCliente().getApellido();
         this.nombrePrenda = resenia.getPrenda().getNombre();
         this.estrellas = resenia.getEstrellas();
         this.comentario = resenia.getComentario();
@@ -57,5 +59,13 @@ public class ReseniaDTO {
 
     public void setFotoPrenda(String fotoPrenda) {
         this.fotoPrenda = fotoPrenda;
+    }
+
+    public String getNombreCliente() {
+        return nombreCliente;
+    }
+
+    public void setNombreCliente(String nombreCliente) {
+        this.nombreCliente = nombreCliente;
     }
 }

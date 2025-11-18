@@ -36,6 +36,7 @@ body {
   font-weight: 400;
   font-style: normal;
 }
+
 /* ----- NAVBAR ----- */
 .navBar {
     background-color: var(--color-fondo);
@@ -98,25 +99,57 @@ body {
     background-color: #e9ecef;
     color: #000;
 }
-
-.tickerSuperior {
-    background-color: var(--color-secondary);
-    color: #fff;
-    overflow: hidden;
-    padding: 0.5rem 0;
-    font-weight: 600;
-    font-size: 0.75rem;
+¿
+.navbar-toggler {
+    border: none !important; 
+    padding: 0 !important;   
+    box-shadow: none !important; 
 }
 
-.tickerTrack {
-    display: flex;
-    animation: scroll-ticker 20s linear infinite;
-    white-space: nowrap;
+.navbar-toggler:focus {
+    box-shadow: none !important;
+    outline: none !important;
 }
 
-.tickerItem {
-    padding: 0 3rem;
-    display: inline-block;
+.ph-user {
+    font-size: 1.5rem;
+    color: var(--color-dark);
+    cursor: pointer;
+}
+
+.navbar > .container-fluid {
+    margin-top: 0 !important;
+}
+
+.seccionSinMargen{
+    margin-top: 0 !important;
+}
+
+.navbar > .container-fluid {
+    flex-wrap: wrap; 
+}
+
+@media (min-width: 992px) {
+    .navbar > .container-fluid {
+        flex-wrap: nowrap !important; 
+    }
+}
+
+.ph-user {
+    font-size: 1.5rem;
+    color: var(--color-dark);
+    cursor: pointer;
+}
+
+.navbar-toggler {
+    border: none !important; 
+    padding: 0 !important;   
+    box-shadow: none !important; 
+}
+
+.navbar-toggler:focus {
+    box-shadow: none !important;
+    outline: none !important;
 }
 
 .btn-login{
@@ -210,25 +243,57 @@ body {
 }
 
 /* ========== CAROUSEL ========== */
-#comprasCarouselContainer, #reseniasCarouselContainer {
-    margin-bottom: 3rem;
-    padding: 0 50px;
-    position: relative;
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%; 
+    opacity: 0.8; 
 }
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-    background-color: rgba(47, 69, 80, 0.7);
+    background-color: #2F4550; 
+    border-radius: 50%; 
+    background-size: 50%; 
+    width: 2.5rem;
+    height: 2.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+    background-color: #1A1A1A; 
+    transform: scale(1.1); 
+}
+
+#comprasCarouselContainer, #reseniasCarouselContainer {
+    padding: 0 3rem; 
+}
+
+.carousel-control-prev { left: 0; }
+.carousel-control-next { right: 0; }
+
+.botonAgregarResena {
+    background-color: #2F4550;
+    color: white;
+    border: none;
     border-radius: 50%;
-    padding: 1.2rem;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    line-height: 1;
+    padding-bottom: 4px; 
 }
 
-.carousel-control-prev {
-    left: 0;
-}
-
-.carousel-control-next {
-    right: 0;
+.botonAgregarResena:hover {
+    background-color: #1A1A1A;
+    transform: rotate(90deg); 
 }
 
 /* ========== TARJETAS DE PRODUCTOS ========== */

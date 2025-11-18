@@ -94,25 +94,57 @@
     background-color: #e9ecef;
     color: #000;
 }
-
-.tickerSuperior {
-    background-color: var(--color-secondary);
-    color: #fff;
-    overflow: hidden;
-    padding: 0.5rem 0;
-    font-weight: 600;
-    font-size: 0.75rem;
+¿
+.navbar-toggler {
+    border: none !important; 
+    padding: 0 !important;   
+    box-shadow: none !important; 
 }
 
-.tickerTrack {
-    display: flex;
-    animation: scroll-ticker 20s linear infinite;
-    white-space: nowrap;
+.navbar-toggler:focus {
+    box-shadow: none !important;
+    outline: none !important;
 }
 
-.tickerItem {
-    padding: 0 3rem;
-    display: inline-block;
+.ph-user {
+    font-size: 1.5rem;
+    color: var(--color-dark);
+    cursor: pointer;
+}
+
+.navbar > .container-fluid {
+    margin-top: 0 !important;
+}
+
+.seccionSinMargen{
+    margin-top: 0 !important;
+}
+
+.navbar > .container-fluid {
+    flex-wrap: wrap; 
+}
+
+@media (min-width: 992px) {
+    .navbar > .container-fluid {
+        flex-wrap: nowrap !important; 
+    }
+}
+
+.ph-user {
+    font-size: 1.5rem;
+    color: var(--color-dark);
+    cursor: pointer;
+}
+
+.navbar-toggler {
+    border: none !important; 
+    padding: 0 !important;   
+    box-shadow: none !important; 
+}
+
+.navbar-toggler:focus {
+    box-shadow: none !important;
+    outline: none !important;
 }
 
 .btn-login{
@@ -136,6 +168,27 @@
     margin-right: 0.5rem;
 }
 
+/* ========== TICKER SUPERIOR ========== */
+.tickerSuperior {
+    background-color: var(--color-secondary);
+    color: #fff;
+    overflow: hidden; 
+    padding: 0.5rem 0;
+    font-weight: 600;
+    font-size: 0.75rem;
+    width: 100%;
+}
+
+.tickerTrack {
+    display: flex;
+    width: max-content;
+    animation: scroll-ticker 25s linear infinite; 
+}
+
+.tickerItem {
+    padding: 0 4rem;
+    white-space: nowrap;
+}
 
 @keyframes scroll-ticker {
     0% { transform: translateX(0); }
@@ -308,28 +361,77 @@
 }
 
 /* ========== SECCIÓN MARCAS ========== */
-.seccionMarcas {
-    padding: 5rem 0;
+
+.seccionMarcasTicker {
+    padding: 4rem 0;
     background-color: var(--color-fondo);
+    overflow: hidden; /* esconde lo que se sale de la pantalla */
+    width: 100%;
 }
 
-.contenedorMarcas {
-    max-width: 1200px;
+.trackMarcas {
+    display: flex;
+    width: max-content; 
+    gap: 2rem; 
+    animation: scroll-marcas 50s linear infinite; /* Animación suave e infinita */
 }
 
-.tarjetaMarca {
-    background-color:  #fff;
+.tarjetaMarcaItem {
+    position: relative;
+    width: 500px;       
+    height: 350px;     
     border-radius: 20px;
-    overflow: hidden;
+    overflow: hidden;   
+    flex-shrink: 0;     /* Evita que se achiquen */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
-    cursor: pointer;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
 }
 
-.tarjetaMarca:hover {
-    transform: translateY(-5px);
+.tarjetaMarcaItem:hover {
+    transform: scale(1.05); 
 }
 
+.imagenMarcaFull {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* La imagen se recorta para llenar la tarjeta sin deformarse */
+    display: block;
+}
+
+.textoMarcaOverlay {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-family: var(--fuente-titulo); 
+    font-weight: 900;
+    font-size: 2rem;
+    color: #fff;
+    text-transform: uppercase;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+    margin: 0;
+    pointer-events: none; /* click pase a la tarjeta si es enlace */
+}
+
+@keyframes scroll-marcas {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 768px) {
+    .tarjetaMarcaItem {
+        width: 220px;
+        height: 280px;
+    }
+    .trackMarcas {
+        gap: 1rem;
+    }
+}
 
 
 .imagenMarca {
@@ -434,59 +536,59 @@
 /* ========== SECCIÓN RESEÑAS TICKER ========== */
 .seccionReseniasTicker {
     padding: 4rem 0;
-    background-color: var(--color-fondo) !important;
+    background-color: var(--color-fondo);
+    width: 100%;
+    overflow: hidden; 
 }
 
 .tickerResenias {
     width: 100%;
     overflow: hidden;
+    background-color: var(--color-fondo);
+    padding: 2rem 0;
 }
 
 .trackResenias {
     display: flex;
-    animation: scroll-resenias 40s linear infinite;
-    gap: 1rem;
+    width: max-content; 
+    gap: 2rem; 
+    animation: scroll-ticker 80s infinite; 
+}
+
+.trackResenias:hover {
+    animation-play-state: paused;
 }
 
 .tarjetaTicker {
-    min-width: 250px; 
-    max-width: 250px; 
-    min-height: 180px;
-    background-color: var(--color-fondo) !important;
-    border: 1px solid #e0e0e0;
+    width: 300px; 
+    background-color: #fff;
+    border: 1px solid var(--color-borde);
     border-radius: 15px;
-    padding: 1.5rem; 
-    flex-shrink: 0;
-    display: flex; 
+    padding: 1.5rem;
+    flex-shrink: 0; /* Evita que se aplasten */
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
-
-.estrellasResena {
-    font-size: 1rem; 
-    margin-bottom: 0.5rem; 
-    color: var(--color-secondary);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
 .textoResenaTicker {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     color: #333;
     line-height: 1.5;
-    margin-bottom: 0.8rem; 
-    flex-grow: 1;
+    margin: 1rem 0;
 }
 
 .autorResena {
-    font-weight: 600;
+    font-weight: 700;
     color: var(--color-titulo);
     margin: 0;
-    font-size: 0.9rem; 
 }
-
-@keyframes scroll-resenias {
+@keyframes scroll-ticker {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
 }
+
 /* ========== SECCIÓN TENDENCIAS ========== */
 .seccionTendencias, .seccionFAQs {
     padding: 1rem 5rem;

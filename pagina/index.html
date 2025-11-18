@@ -25,16 +25,29 @@
     </div>
 
     <nav class="navbar navbar-expand-lg navBar">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="logo.png" alt="dht crew logo"/></a>
+        <div class="container-fluid flex-wrap flex-lg-nowrap"> 
+            
+            <div class="d-flex align-items-center seccionSinMargen">
+                <button class="navbar-toggler me-3 border-0 p-0 shadow-none d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <a class="navbar-brand m-0" href="#">
+                    <img src="logo.png" alt="dht crew logo" style="width: 80px; height: auto;"/>
+                </a>
+            </div>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <div class="d-flex align-items-center gap-3 order-lg-3 ms-auto ms-lg-0 seccionSinMargen">
+                <i class="bi bi-cart fs-4"></i>
+                <button class="btn-login d-none d-lg-block"><a href="login.html">Ingresar</a></button>
+                <a href="login.html" class="d-lg-none text-dark">
+                    <i class="ph ph-user fs-4"></i>
+                </a>
+            </div>
 
-            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item dropdown dropdownTexto">
+            <div class="collapse navbar-collapse justify-content-center order-lg-2 w-100" id="navbarNav">
+                <ul class="navbar-nav mt-3 mt-lg-0 text-start text-lg-center w-100 justify-content-center"> 
+                    <li class="nav-item dropdown dropdownTexto px-3">
                         <a class="nav-link dropdown-toggle textoDrop" href="#" role="button" data-bs-toggle="dropdown">Tienda</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Todos los productos</a></li>
@@ -43,32 +56,24 @@
                         </ul>
                     </li>
 
-                    <li class="nav-item dropdown dropdownTexto">
-                        <a class="nav-link dropdown-toggle textoDrop" href="#" role="button" data-bs-toggle="dropdown"> Marcas </a>
+                    <li class="nav-item dropdown dropdownTexto px-3">
+                         <a class="nav-link dropdown-toggle textoDrop" href="#" role="button" data-bs-toggle="dropdown">Marcas</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Nike</a></li>
                             <li><a class="dropdown-item" href="#">Adidas</a></li>
-                            <li><a class="dropdown-item" href="#">Puma</a></li>
-                            <li><a class="dropdown-item" href="#">Kiech</a></li>
-                            <li><a class="dropdown-item" href="#">King Of The Kongo</a></li>
-                            <li><a class="dropdown-item" href="#">Vancouver</a></li>
                         </ul>
                     </li>
 
-                    <li class="nav-item dropdown dropdownTexto">
-                        <a class="nav-link dropdown-toggle textoDrop" href="#" role="button" data-bs-toggle="dropdown"> Ayuda </a>
+                    <li class="nav-item dropdown dropdownTexto px-3">
+                         <a class="nav-link dropdown-toggle textoDrop" href="#" role="button" data-bs-toggle="dropdown">Ayuda</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Sobre Nosotros</a></li>
                             <li><a class="dropdown-item" href="#">FAQ</a></li>
-                            <li><a class="dropdown-item" href="#">Contacto</a></li>
                         </ul>
                     </li>
                 </ul>
             </div>
-            <div class="d-flex align-items-center">
-                <i class="bi bi-cart"></i> 
-                <button class="btn-login"><a href="login.html">Ingresar</a></button>
-            </div>
+            
         </div>
     </nav>
 
@@ -165,58 +170,61 @@
         </div>
     </section>
 
-    <section class="seccionMarcas">
-        <div class="container contenedorMarcas">
-                <div class="tickerResenias">
-                    <div class="trackResenias">
-                        <div class="row g-4"></div>
-                    
-                        <div class="tarjetaTicker">
-                            <div class="col-12 col-md-4">
-                                <div class="tarjetaMarca">
-                                    <img class="imagenMarca" src="home/kiech.png"/>
-                                    <h3 class="nombreMarca">KIECH</h3>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tarjetaTicker">
-                            <div class="col-12 col-md-4 tarjetaTicker">
-                                <div class="tarjetaMarca">
-                                    <img class="imagenMarca" src="home/vancouver.png"/>
-                                    <h3 class="nombreMarca">VANCOUVER</h3>
-                                </div>
-                            </div>
-                        </div>
+    <section class="seccionMarcasTicker">
+        <div class="contenedorMarcas">
+            <div class="trackMarcas">
                 
-                        <div class="tarjetaTicker">
-                            <div class="col-12 col-md-4 tarjetaTicker tickerItem">
-                                <div class="tarjetaMarca">
-                                    <img class="imagenMarca" src="home/puma.png"/>
-                                    <h3 class="nombreMarca">PUMA</h3>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tarjetaTicker">
-                            <div class="col-12 col-md-4 tarjetaTicker tickerItem">
-                                <div class="tarjetaMarca">
-                                    <img class="imagenMarca" src="home/kotk.png"/>
-                                    <h3 class="nombreMarca">KOTK</h3>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tarjetaTicker">                            
-                            <div class="col-12 col-md-4 tarjetaTicker tickerItem">
-                                <div class="tarjetaMarca">
-                                    <img class="imagenMarca" src="home/nike.png"/>
-                                    <h3 class="nombreMarca">NIKE</h3>
-                                </div>
-                            </div>
-                        </div>
+                <div class="tarjetaMarcaItem">
+                    <img class="imagenMarcaFull" src="home/kiech.png" alt="Kiech">
+                    <h3 class="textoMarcaOverlay">KIECH</h3>
                 </div>
-            </div>    
+                <div class="tarjetaMarcaItem">
+                    <img class="imagenMarcaFull" src="home/vancouver.png" alt="Vancouver">
+                    <h3 class="textoMarcaOverlay">VANCOUVER</h3>
+                </div>
+                <div class="tarjetaMarcaItem">
+                    <img class="imagenMarcaFull" src="home/puma.png" alt="Puma">
+                    <h3 class="textoMarcaOverlay">PUMA</h3>
+                </div>
+                <div class="tarjetaMarcaItem">
+                    <img class="imagenMarcaFull" src="home/kotk.png" alt="KOTK">
+                    <h3 class="textoMarcaOverlay">KOTK</h3>
+                </div>
+                <div class="tarjetaMarcaItem">
+                    <img class="imagenMarcaFull" src="home/nike.png" alt="Nike">
+                    <h3 class="textoMarcaOverlay">NIKE</h3>
+                </div>
+                <div class="tarjetaMarcaItem">
+                    <img class="imagenMarcaFull" src="home/adidas.png" alt="Adidas">
+                    <h3 class="textoMarcaOverlay">ADIDAS</h3>
+                </div>
+
+                <div class="tarjetaMarcaItem">
+                    <img class="imagenMarcaFull" src="home/kiech.png" alt="Kiech">
+                    <h3 class="textoMarcaOverlay">KIECH</h3>
+                </div>
+                <div class="tarjetaMarcaItem">
+                    <img class="imagenMarcaFull" src="home/vancouver.png" alt="Vancouver">
+                    <h3 class="textoMarcaOverlay">VANCOUVER</h3>
+                </div>
+                <div class="tarjetaMarcaItem">
+                    <img class="imagenMarcaFull" src="home/puma.png" alt="Puma">
+                    <h3 class="textoMarcaOverlay">PUMA</h3>
+                </div>
+                <div class="tarjetaMarcaItem">
+                    <img class="imagenMarcaFull" src="home/kotk.png" alt="KOTK">
+                    <h3 class="textoMarcaOverlay">KOTK</h3>
+                </div>
+                <div class="tarjetaMarcaItem">
+                    <img class="imagenMarcaFull" src="home/nike.png" alt="Nike">
+                    <h3 class="textoMarcaOverlay">NIKE</h3>
+                </div>
+                <div class="tarjetaMarcaItem">
+                    <img class="imagenMarcaFull" src="home/adidas.png" alt="Adidas">
+                    <h3 class="textoMarcaOverlay">ADIDAS</h3>
+                </div>
+
+            </div>
         </div>
     </section>
 
@@ -272,38 +280,8 @@
 
     <section class="seccionReseniasTicker">
         <div class="tickerResenias">
-            <div class="trackResenias">
-                <div class="tarjetaTicker">
-                    <div class="estrellasResena">⭐⭐⭐⭐⭐</div>
-                    <p class="textoResenaTicker">Tardó en llegar más que esperaba pero valió la pena. Encontré todo lo que estaba buscando acá</p>
-                    <p class="autorResena">Olivia S.</p>
+            <div class="trackResenias" id="trackReseniasDestacadas">
                 </div>
-                <div class="tarjetaTicker">
-                    <div class="estrellasResena">⭐⭐⭐⭐⭐</div>
-                    <p class="textoResenaTicker">Aproveché las ofertas del viernes pasado y me llegaron dos pantalones preciosos</p>
-                    <p class="autorResena">Hernan D.</p>
-                </div>
-                <div class="tarjetaTicker">
-                    <div class="estrellasResena">⭐⭐⭐⭐⭐</div>
-                    <p class="textoResenaTicker">Tienen las marcas que me gustan con precios que varian. Compré un buzo y la calidad del algodón es incomparable</p>
-                    <p class="autorResena">Martin H.</p>
-                </div>
-                <div class="tarjetaTicker">
-                    <div class="estrellasResena">⭐⭐⭐⭐⭐</div>
-                    <p class="textoResenaTicker">La calidad de la remera es excelente no se achica ni pierde color y el precio es justo</p>
-                    <p class="autorResena">Carla F.</p>
-                </div>
-                <div class="tarjetaTicker">
-                    <div class="estrellasResena">⭐⭐⭐⭐⭐</div>
-                    <p class="textoResenaTicker">Tardó en llegar más que esperaba pero valió la pena. Encontré todo lo que estaba buscando acá</p>
-                    <p class="autorResena">Olivia S.</p>
-                </div>
-                <div class="tarjetaTicker">
-                    <div class="estrellasResena">⭐⭐⭐⭐⭐</div>
-                    <p class="textoResenaTicker">Aproveché las ofertas del viernes pasado y me llegaron dos pantalones preciosos</p>
-                    <p class="autorResena">Hernan D.</p>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -401,5 +379,42 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            
+            fetch('http://localhost:8080/api/resenias/destacadas')
+            .then(response => response.json())
+            .then(resenias => {
+                const track = document.getElementById('trackReseniasDestacadas');
+                
+                if (resenias.length === 0) {
+                    track.innerHTML = '<p>No hay reseñas destacadas recientes.</p>';
+                    return;
+                }
+
+                const crearTarjeta = (resenia) => {
+                const estrellasHtml = '⭐'.repeat(resenia.estrellas);
+                
+                    return `
+                        <div class="tarjetaTicker">
+                            <div class="estrellasResena">${estrellasHtml}</div>
+                            <p class="textoResenaTicker">"${resenia.comentario}"</p>
+                            <div class="autorResena d-flex align-items-center gap-2">
+                                <span>${resenia.nombreCliente}</span> 
+                            </div>
+                        </div>
+                    `;
+                };
+
+                let htmlContent = '';
+                resenias.forEach(r => htmlContent += crearTarjeta(r));
+                
+                // duplicamos contenido para loop infinito
+                track.innerHTML = htmlContent + htmlContent; 
+
+            })
+            .catch(error => console.error('Error cargando reseñas:', error));
+        });
+    </script>
 </body>
 </html>
