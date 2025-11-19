@@ -197,15 +197,16 @@
 
 /* ========== HERO SECTION ========== */
 .seccionHero {
-    background: url('hero-bg.jpg') center center/cover no-repeat; 
+    background-image: url('home/hero-bg.jpg'); 
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
     min-height: 85vh;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     overflow: hidden;
-    margin: 0 1rem; 
-    border-radius: var(--radio-border); 
 }
 
 .contenedorHero {
@@ -218,20 +219,22 @@
     font-family: var(--fuente-titulo);
     font-size: clamp(3rem, 10vw, 7rem);
     font-weight: 900;
-    color: #000000;
+    color: var(--color-accent);
+    text-shadow: 5px 3px 3px var(--color-titulo);
     letter-spacing: 0.05em;
 }
 
 .subtituloHero {
     font-size: clamp(1rem, 2vw, 1.5rem);
-    color:  #000000;
+    color:  #ffffff;
+    text-shadow: 2px 1px 1px black;
     max-width: 700px;
     margin: 0 auto;
 }
 
 /* ========== SECCIÓN NEW IN ========== */
 .seccionNewIn {
-    padding: 5rem 0;
+    padding: 3rem 0;
     background-color: var(--color-fondo);
 }
 
@@ -334,6 +337,42 @@
 .controlCarrusel:hover {
     opacity: 1;
     background-color: rgba(0, 0, 0, 0.5);
+}
+
+.contenedor-img-hover {
+    position: relative;
+    width: 100%;
+    height: 400px; 
+    overflow: hidden;
+    background-color: #e0e0e0; 
+}
+
+.contenedor-img-hover img {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    transition: opacity 0.4s ease-in-out; 
+}
+
+.img-main {
+    opacity: 1;
+    z-index: 1;
+}
+
+.img-secondary {
+    opacity: 0; 
+    z-index: 2;
+}
+
+.tarjetaProductoDestacado:hover .img-secondary {
+    opacity: 1; /
+}
+
+.tarjetaProductoDestacado:hover .img-main { 
+    opacity: 0; 
 }
 
 /* ========== SECCIÓN PRODUCTOS ========== */
@@ -827,3 +866,5 @@
         margin-top: 1rem;
     }
 }
+
+

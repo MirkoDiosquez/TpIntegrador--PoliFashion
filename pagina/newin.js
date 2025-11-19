@@ -38,13 +38,16 @@ document.addEventListener("DOMContentLoaded", function() {
                 return `<span class="colorOpcion" style="background-color: ${colorCode}; border: 1px solid #ddd;" title="${color}"></span>`;
             }).join('');
 
-                const foto = prenda.fotoPrincipal || 'home/producto_default.png';
+                const foto = "mockupIMG/" + prenda.fotoPrincipal ;
+                const fotoHover = "mockupIMG/" + prenda.foto2 ;
 
                 const cardHtml = `
                     <div class="col-12 col-md-4"> 
                         <div class="tarjetaProductoDestacado h-100">
-                            <div class="imagenProductoDestacado" style="background-image: url('${foto}');"></div>
-                            
+                            <div class="contenedor-img-hover">
+                                <img src="${foto}" class="img-fluid img-main" alt="${prenda.nombre}">
+                                <img src="${fotoHover}" class="img-fluid img-secondary" alt="${prenda.nombre} vista trasera">
+                            </div>
                             <div class="infoProductoDestacado">
                                 <p class="marcaDestacada">${(prenda.nombreMarca || 'MARCA').toUpperCase()}</p>
                                 <h3 class="nombreDestacado">${prenda.nombre}</h3>
