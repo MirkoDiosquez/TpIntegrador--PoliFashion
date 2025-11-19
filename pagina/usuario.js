@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     
                     let cardsHtml = '';
                     slideItems.forEach(item => {
-                        const foto = item.fotoPrincipal ;
+                        const foto = "mockupIMG/" + item.fotoPrincipal ;
                         
                         cardsHtml += `
                         <div class="col-12 col-md-6 col-lg-3">
@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     let cardsHtml = '';
                     slideItems.forEach(r => {
                         const estrellas = '⭐'.repeat(r.estrellas);
-                        const foto = r.fotoPrenda || 'https://via.placeholder.com/80';
+                        const foto = "mockupIMG/" + r.fotoPrenda || 'https://via.placeholder.com/80';
                         
                         cardsHtml += `
                         <div class="col-12 col-md-6">
