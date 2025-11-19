@@ -40,9 +40,12 @@ body {
 /* ----- NAVBAR ----- */
 .navBar {
     background-color: var(--color-fondo);
-    padding: 1rem 2rem;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    padding: 0; 
     position: sticky !important;
+    top: 0;
+    z-index: 1000;
+    height: 70px; 
 }
 
 .navbar-brand img{
