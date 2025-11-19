@@ -3,6 +3,7 @@ package com.example.DHT.DTO;
 import com.example.DHT.extras.enums.GeneroPrenda;
 import com.example.DHT.model.Prenda;
 import com.example.DHT.model.VariantePrenda;
+import java.util.stream.Collectors;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,12 +12,14 @@ public class PrendaDTO {
     private Integer idTela;
     private Integer idTipo;
     private String nombre;
+    private String nombreMarca;
     private GeneroPrenda genero;
     private Double precio;
     private String descripcion;
     private List<Variante> variantes;
     private String fotoPrincipal;
     private String foto2;
+    private List<String> coloresDisponibles;
 
     public PrendaDTO() {
         this.variantes = new ArrayList<>();
@@ -27,6 +30,7 @@ public class PrendaDTO {
         this.idTipo = prenda.getTipo().getIdTipo();
         this.nombre = prenda.getNombre();
         this.genero = prenda.getGenero();
+        this.nombreMarca = prenda.getMarca().getNombreMarca();
         this.precio = prenda.getPrecio();
         this.descripcion = prenda.getDescripcion();
         this.variantes = new ArrayList<>();
@@ -42,6 +46,9 @@ public class PrendaDTO {
 
         this.fotoPrincipal = prenda.getFotoPrincipal();
         this.foto2 = prenda.getFoto2();
+
+        // para poder mostrar los colores especificos q ha
+        this.coloresDisponibles = prenda.getVariantes().stream().map(VariantePrenda::getColor).distinct().collect(Collectors.toList());
     }
 
     public Integer getIdTela() {
@@ -114,5 +121,21 @@ public class PrendaDTO {
 
     public void setFoto2(String foto2) {
         this.foto2 = foto2;
+    }
+
+    public List<String> getColoresDisponibles() {
+        return coloresDisponibles;
+    }
+
+    public String getNombreMarca() {
+        return nombreMarca;
+    }
+
+    public void setNombreMarca(String nombreMarca) {
+        this.nombreMarca = nombreMarca;
+    }
+
+    public void setColoresDisponibles(List<String> coloresDisponibles) {
+        this.coloresDisponibles = coloresDisponibles;
     }
 }

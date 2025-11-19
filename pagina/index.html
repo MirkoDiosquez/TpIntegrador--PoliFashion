@@ -84,77 +84,15 @@
         </div>
     </section>
 
-    <section class="seccionNewIn">
+   <section class="seccionNewIn">
         <div class="container contenedorNewIn">
             <h2 class="tituloSeccion">NEW IN!</h2>
             
-            <div id="carouselNewIn" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner carruselInterior">
-                    <div class="carousel-item active">
-                        <div class="row g-4 justify-content-center">
-                            <div class="col-10 col-md-4">
-                                <div class="tarjetaProductoDestacado">
-                                    <div class="imagenProductoDestacado"></div>
-                                    <div class="infoProductoDestacado">
-                                        <p class="marcaDestacada">ADIDAS</p>
-                                        <h3 class="nombreDestacado">Pantalon Tyshawn</h3>
-                                        <p class="precioDestacado">$57.800</p>
-                                        <div class="coloresDisponibles">
-                                            <span class="colorOpcion" style="background-color: #f0f0f0;"></span>
-                                            <span class="colorOpcion" style="background-color: #999;"></span>
-                                            <span class="colorOpcion" style="background-color: #333;"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="row g-4 justify-content-center">
-                            <div class="col-10 col-md-4">
-                                <div class="tarjetaProductoDestacado">
-                                    <div class="imagenProductoDestacado"></div>
-                                    <div class="infoProductoDestacado">
-                                        <p class="marcaDestacada">NIKE</p>
-                                        <h3 class="nombreDestacado">Buzo Oversized</h3>
-                                        <p class="precioDestacado">$62.500</p>
-                                        <div class="coloresDisponibles">
-                                            <span class="colorOpcion" style="background-color: #000;"></span>
-                                            <span class="colorOpcion" style="background-color: #1a5490;"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="row g-4 justify-content-center">
-                            <div class="col-10 col-md-4">
-                                <div class="tarjetaProductoDestacado">
-                                    <div class="imagenProductoDestacado"></div>
-                                    <div class="infoProductoDestacado">
-                                        <p class="marcaDestacada">KOTK</p>
-                                        <h3 class="nombreDestacado">Buzo Xongo Unisex</h3>
-                                        <p class="precioDestacado">$87.800</p>
-                                        <div class="coloresDisponibles">
-                                            <span class="colorOpcion" style="background-color: #000;"></span>
-                                            <span class="colorOpcion" style="background-color: #a0522d;"></span>
-                                            <span class="colorOpcion" style="background-color: #e6e6fa;"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <button class="carousel-control-prev controlCarrusel" type="button" data-bs-target="#carouselNewIn" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                </button>
-                <button class="carousel-control-next controlCarrusel" type="button" data-bs-target="#carouselNewIn" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                </button>
+            <div id="contenedorNewIn" class="row g-4 justify-content-center">
+                <div class="text-center">Cargando novedades...</div>
             </div>
-        </div>
+            
+            </div>
     </section>
 
     <section class="seccionProductos">
@@ -379,42 +317,8 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            
-            fetch('http://localhost:8080/api/resenias/destacadas')
-            .then(response => response.json())
-            .then(resenias => {
-                const track = document.getElementById('trackReseniasDestacadas');
-                
-                if (resenias.length === 0) {
-                    track.innerHTML = '<p>No hay reseñas destacadas recientes.</p>';
-                    return;
-                }
-
-                const crearTarjeta = (resenia) => {
-                const estrellasHtml = '⭐'.repeat(resenia.estrellas);
-                
-                    return `
-                        <div class="tarjetaTicker">
-                            <div class="estrellasResena">${estrellasHtml}</div>
-                            <p class="textoResenaTicker">"${resenia.comentario}"</p>
-                            <div class="autorResena d-flex align-items-center gap-2">
-                                <span>${resenia.nombreCliente}</span> 
-                            </div>
-                        </div>
-                    `;
-                };
-
-                let htmlContent = '';
-                resenias.forEach(r => htmlContent += crearTarjeta(r));
-                
-                // duplicamos contenido para loop infinito
-                track.innerHTML = htmlContent + htmlContent; 
-
-            })
-            .catch(error => console.error('Error cargando reseñas:', error));
-        });
-    </script>
+    
+    <script src="reseñas.js"></script> 
+    <script src="newin.js"></script>
 </body>
 </html>

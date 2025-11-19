@@ -1,5 +1,6 @@
 package com.example.DHT.controller;
 
+import com.example.DHT.DTO.PrendaDTO;
 import com.example.DHT.DTO.Ranking; // DTO para el ranking
 import com.example.DHT.service.PrendaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,5 +46,10 @@ public class PrendaController {
         } catch (Exception e) {
             return new ResponseEntity<>("Error al generar el ranking: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    @GetMapping("/new-in")
+    public ResponseEntity<List<PrendaDTO>> getNewIn() {
+        return ResponseEntity.ok(prendaService.getUltimasPrendas());
     }
 }

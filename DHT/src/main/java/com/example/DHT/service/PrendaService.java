@@ -1,9 +1,11 @@
 package com.example.DHT.service;
 
+import com.example.DHT.DTO.PrendaDTO;
 import com.example.DHT.DTO.Ranking;
 import com.example.DHT.model.CompraDetalle;
 import com.example.DHT.model.VariantePrenda;
 import com.example.DHT.repository.CompraDetalleRepository;
+import com.example.DHT.repository.PrendaRepository;
 import com.example.DHT.repository.VariantePrendaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +21,8 @@ import java.util.stream.Collectors;
 
 @Service
 public class PrendaService {
+    @Autowired
+    private PrendaRepository prendaRepository;
 
     @Autowired
     private VariantePrendaRepository variantePrendaRepository;
@@ -92,6 +96,12 @@ public class PrendaService {
         return rankingMap.values().stream()
                 .sorted(Comparator.comparing(Ranking::getCantidadVendida).reversed())
                 .limit(10)
+                .collect(Collectors.toList());
+    }
+
+    public List<PrendaDTO> getUltimasPrendas() {
+        return prendaRepository.findTop3ByOrderByIdPrendaDesc().stream()
+                .map(PrendaDTO::new)
                 .collect(Collectors.toList());
     }
 }
