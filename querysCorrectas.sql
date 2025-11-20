@@ -78,7 +78,7 @@ begin
 
 
     if  ( stockMin > stockUltimaPrendaComprada) then
-        insert into alertas_stock values (NEW.idVariantePrenda, now(), 'El stock de esta prenda está por debajo del mínimo');
+        insert into alerta_stock values (NEW.idVariantePrenda, now(), 'El stock de esta prenda está por debajo del mínimo');
     end if;
 
     
