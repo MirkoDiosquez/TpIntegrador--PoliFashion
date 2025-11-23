@@ -21,7 +21,7 @@ public class ReseniaService {
         clienteRepository.findById(clienteDni)
                 .orElseThrow(() -> new RuntimeException("Cliente no existe"));
 
-        return reseniaRepository.findAllByClienteDni(clienteDni).stream()
+        return reseniaRepository.findAllByClienteDniOrderByFechaDesc(clienteDni).stream()
                 .map(ReseniaDTO::new)
                 .collect(Collectors.toList());
     }

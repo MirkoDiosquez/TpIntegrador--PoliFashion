@@ -8,6 +8,6 @@ import java.util.List;
 
 @Repository
 public interface ReseniaRepository extends JpaRepository<Resenia, Integer> {
-    List<Resenia> findAllByClienteDni(String clienteDni);
+    List<Resenia> findAllByClienteDniOrderByFechaDesc(String clienteDni);
     List<Resenia> findByEstrellasGreaterThanEqualAndFechaAfter(int minEstrellas, LocalDate fechaLimite);
 }

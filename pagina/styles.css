@@ -357,8 +357,8 @@ background-color: var(--fondo);
     transform: translateX(3px); 
 }
 
-.footer-links {
-    margin-top: 0; 
+.footer-links{
+    margin-top: 10px !important;
 }
 
 .footer-links h5 {

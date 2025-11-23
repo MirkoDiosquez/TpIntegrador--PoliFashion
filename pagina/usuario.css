@@ -184,6 +184,7 @@ body {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
 }
+
 /* ========== PERFIL DE USUARIO ========== */
 .contenedorPerfil {
     max-width: 1200px;
@@ -256,7 +257,7 @@ body {
 .carousel-control-next-icon {
     background-color: #2F4550; 
     border-radius: 50%; 
-    background-size: 50%; 
+    background-size: 50% 50% !important; 
     width: 2.5rem;
     height: 2.5rem;
     transition: all 0.3s ease;
@@ -276,25 +277,25 @@ body {
 .carousel-control-prev { left: 0; }
 .carousel-control-next { right: 0; }
 
-.botonAgregarResena {
+.botonAgregarResenia {
     background-color: #2F4550;
-    color: white;
     border: none;
     border-radius: 50%;
     width: 40px;
     height: 40px;
     font-size: 1.5rem;
-    font-weight: 300;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     transition: transform 0.3s ease, background-color 0.3s ease;
-    line-height: 1;
-    padding-bottom: 4px; 
 }
 
-.botonAgregarResena:hover {
+.ph-plus{
+    color:#e9ecef;
+}
+
+.botonAgregarresenia:hover {
     background-color: #1A1A1A;
     transform: rotate(90deg); 
 }
@@ -371,18 +372,18 @@ body {
 }
 
 /* ========== RESEÑAS ========== */
-.seccionResenas {
+.seccionresenias {
     margin-top: 3rem;
 }
 
-.encabezadoResenas {
+.encabezadoresenias {
     display: inliflex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2rem;
 }
 
-.botonAgregarResena {
+.botonAgregarresenia {
     background-color: var(--color-titulo);
     color: white;
     border: none;
@@ -397,29 +398,32 @@ body {
     transition: var(--transicion);
 }
 
-.botonAgregarResena:hover {
+.botonAgregarresenia:hover {
     background-color: #1a2930;
     transform: rotate(90deg);
 }
 
-.tarjetaResena {
+.tarjetaresenia {
     background-color: white;
     border: 1px solid var(--color-borde);
-    border-radius: var(--radio-border);
     padding: 1.5rem;
     display: flex;
     gap: 1rem;
+    align-items: center;
+    justify-content: center;
 }
 
-.imagenResena {
+.imagenresenia {
+    text-emphasis: none;
     width: 100px;
     height: 100px;
     object-fit: cover;
     background-color: #f5f5f5;
     flex-shrink: 0;
+    border-radius: 0% !important;
 }
 
-.contenidoResena {
+.contenidoresenia {
     flex: 1;
 }
 
@@ -429,16 +433,16 @@ body {
     margin-bottom: 0.5rem;
 }
 
-.fechaResena {
+.fecharesenia {
     font-size: 0.8rem;
     color: #999;
     margin-bottom: 0.5rem;
 }
 
-.textoResena {
+.textoresenia {
     color: #333;
     font-size: 0.9rem;
-    line-height: 1.5;
+    line-height: 1.2;
 }
 
 /* ========== FOOTER ========== */
@@ -513,8 +517,8 @@ body {
     transform: translateX(3px);
 }
 
-.footer-links {
-    margin-top: 0;
+.footer-links{
+    margin-top: 10px !important;
 }
 
 .footer-links h5 {
@@ -597,5 +601,10 @@ body {
 
     #comprasCarouselContainer, #reseniasCarouselContainer {
         padding: 0 20px;
+    }
+        
+    .imagenAvatar{
+        width: 100% !important;
+        height: 100% !important;
     }
 }
