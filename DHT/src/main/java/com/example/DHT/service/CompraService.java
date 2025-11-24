@@ -56,6 +56,8 @@ public class CompraService {
 
             Marca marcaDeLaPrenda = variante.getPrenda().getMarca();
             marcaDeLaPrenda.setCantidadVentasTotales(marcaDeLaPrenda.getCantidadVentasTotales() + itemDTO.getCantidad());
+            double ganancia = precioPrenda * itemDTO.getCantidad() * (1 - marcaDeLaPrenda.getPorcentajeComision() / 100);
+            marcaDeLaPrenda.setGananciasTotales(marcaDeLaPrenda.getGananciasTotales() + (float) ganancia);
 
             CompraDetalle detalle = new CompraDetalle();
             detalle.setVariantePrenda(variante);

@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/clientes")
@@ -60,6 +61,16 @@ public class ClienteController {
         try {
             // Se cambia la llamada al nuevo método simplificado: obtenerPuntosCliente
             return ResponseEntity.ok(clienteService.obtenerPuntosCliente(clienteDni));
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    }
+
+    @GetMapping("/{id}/estadisticas/marcas")
+    public ResponseEntity<?> obtenerEstadisticasMarcas(@PathVariable("id") String clienteDni) {
+        try {
+            Map<String, Integer> estadisticas = clienteService.obtenerEstadisticasMarcas(clienteDni);
+            return ResponseEntity.ok(estadisticas);
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
