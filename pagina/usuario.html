@@ -27,10 +27,7 @@
 
             <div class="d-flex align-items-center gap-3 order-lg-3 ms-auto ms-lg-0 seccionSinMargen">
                 <i class="bi bi-cart fs-4"></i>
-                <button class="btn-login d-none d-lg-block"><a href="login.html">Salir</a></button>
-                <a href="login.html" class="d-lg-none text-dark">
-                    <i class="ph ph-user fs-4"></i>
-                </a>
+              <button class="btn-login d-none d-lg-block" id="logoutButton">Salir</button>
             </div>
 
             <div class="collapse navbar-collapse justify-content-center order-lg-2 w-100" id="navbarNav">
@@ -126,6 +123,15 @@
                 <button class="carousel-control-next custom-arrow" type="button" data-bs-target="#reseniasCarouselContainer" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 </button>
+            </div>
+        </div>        
+        
+        
+        <div class="seccionMarcas mt-5 mb-5">
+            <h2 class="tituloSeccionUsuario mb-4 px-2">Mis marcas</h2>
+            
+            <div id="marcasFavoritasContainer" class="row g-3">
+                <div class="col-12 text-center py-4"><p class="text-muted">Cargando estadísticas...</p></div>
             </div>
         </div>
 

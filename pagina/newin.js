@@ -1,45 +1,48 @@
 document.addEventListener("DOMContentLoaded", function() {  
     function loadNewInProducts() {
-        
         fetch('http://localhost:8080/api/prendas/new-in')
         .then(response => {
             if (!response.ok) {
-                throw new Error(`Error HTTP ${response.status}: No se pudo cargar el endpoint de novedades.`);
+                throw new Error(`Error HTTP ${response.status}`);
             }
             return response.json();
         })
         .then(prendas => {
-            const contenedor = document.getElementById('contenedorNewIn');
+            const contenedor = document.getElementById('contenedorNewIn'); // ← DECLARAR PRIMERO
             contenedor.innerHTML = ''; 
 
-            if (!prendas || prendas.length === 0) {
+            const prendasValidas = prendas.filter(p => 
+                p.variantes && p.variantes.length > 0
+            );
+            
+            if (!prendasValidas || prendasValidas.length === 0) {
                 contenedor.innerHTML = '<p class="text-center text-muted">No hay novedades por ahora.</p>';
                 return;
             }
 
-            prendas.forEach(prenda => {
+            prendasValidas.forEach(prenda => {
                 const coloresHtml = (prenda.coloresDisponibles || []).map(color => {
-                const colorMap = {
-                    'negro': '#000000',
-                    'negrogastado': '#000000',
-                    'blanco': '#FFFFFF',
-                    'gris': '#A9A9A9',      
-                    'gris melange': '#C0C0C0', 
-                    'azul': '#1E90FF',
-                    'verde': '#228B22',
-                    'marrón': '#5D4037',  
-                    'beige': '#F5F5DC',    
-                    'vino': '#640032'    
-                };
-            
-                const cleanColor = color.toLowerCase().trim().replace(/ /g, ''); 
-                const colorCode = colorMap[cleanColor] || '#808080'; 
+                    const colorMap = {
+                        'negro': '#000000',
+                        'negrogastado': '#000000',
+                        'blanco': '#FFFFFF',
+                        'gris': '#A9A9A9',      
+                        'gris melange': '#C0C0C0', 
+                        'azul': '#1E90FF',
+                        'verde': '#228B22',
+                        'marrón': '#5D4037',  
+                        'beige': '#F5F5DC',    
+                        'vino': '#640032'    
+                    };
                 
-                return `<span class="colorOpcion" style="background-color: ${colorCode}; border: 1px solid #ddd;" title="${color}"></span>`;
-            }).join('');
+                    const cleanColor = color.toLowerCase().trim().replace(/ /g, ''); 
+                    const colorCode = colorMap[cleanColor] || '#808080'; 
+                    
+                    return `<span class="colorOpcion" style="background-color: ${colorCode}; border: 1px solid #ddd;" title="${color}"></span>`;
+                }).join('');
 
-                const foto = "mockupIMG/" + prenda.fotoPrincipal ;
-                const fotoHover = "mockupIMG/" + prenda.foto2 ;
+                const foto = "mockupIMG/" + prenda.fotoPrincipal;
+                const fotoHover = "mockupIMG/" + prenda.foto2;
 
                 const cardHtml = `
                     <div class="col-12 col-md-4"> 
@@ -62,8 +65,8 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .catch(error => {
             const contenedor = document.getElementById('contenedorNewIn');
-            console.error('Error FATAL al cargar NEW IN:', error);
-            contenedor.innerHTML = '<p class="text-center text-danger">Fallo de conexión. No se pudieron cargar las novedades.</p>';
+            console.error('Error al cargar NEW IN:', error);
+            contenedor.innerHTML = '<p class="text-center text-danger">Error de conexión.</p>';
         });
     }
     

@@ -5,28 +5,63 @@ http://localhost:8080/api/compras
     "idMetodo": 2,
     "items": [
         { 
-            "idVariantePrenda": 106,   
+            "idVariantePrenda": 27,
             "cantidad": 3
         }
     ]
-}
+} --> con este json tirará error de stock insuficinete
+
+{
+    "clienteDni": "23456789",
+    "idMetodo": 2,
+    "items": [
+        {
+            "idVariantePrenda": 65,
+            "cantidad": 3
+        }
+    ]
+} --> con este json la compra se realizará correctamente y actualizará bien las tablas
 
 /* ej B */
+http://localhost:8080/api/devoluciones
 {
-    "clienteDni": "12345678",
-    "idCompra": 4,
+    "clienteDni": "10000010",
+    "idCompra": 49,
     "items": [
-        { 
-            "idCompraDetalle": 5,   
+        {
+            "idCompraDetalle": 75,
             "cantidadADevolver": 1
         }
     ]
-}
+} --> puma no puede devolver
+
+{
+    "clienteDni": "12345678",
+    "idCompra": 1,
+    "items": [
+        {
+            "idCompraDetalle": 1,
+            "cantidadADevolver": 1
+        }
+    ]
+} --> devolucion hecha previamente (va a tirar error)
+
+{
+    "clienteDni": "10000001",
+    "idCompra": 47,
+    "items": [
+        {
+            "idCompraDetalle": 73,
+            "cantidadADevolver": 1
+        }
+    ]
+} --> devolucion posible
+
 
 
 /* ej C */
-http://localhost:8080/api/cliente/12345678/historial --> existe
-http://localhost:8080/api/cliente/12345677/historial --> no existe cliente
+http://localhost:8080/api/clientes/12345678/historial --> existe
+http://localhost:8080/api/clientes/12345677/historial --> no existe cliente
 
 
 /* ej D */

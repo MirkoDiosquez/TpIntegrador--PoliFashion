@@ -31,18 +31,14 @@ public class CompraService {
     // si algo falla bdd hace rollback y cancela operación
     @Transactional
     public Compra registrarCompra(CompraDTO compraRequest) {
-        Cliente cliente = clienteRepository.findById(compraRequest.getClienteDni())
-                .orElseThrow(() -> new RuntimeException("Cliente no encontrado"));
-
-        MetodoPago metodoPago = metodoPagoRepository.findById(compraRequest.getIdMetodo())
-                .orElseThrow(() -> new RuntimeException("Método de pago no encontrado"));
+        Cliente cliente = clienteRepository.findById(compraRequest.getClienteDni()).orElseThrow(() -> new RuntimeException("Cliente no encontrado"));
+        MetodoPago metodoPago = metodoPagoRepository.findById(compraRequest.getIdMetodo()).orElseThrow(() -> new RuntimeException("Método de pago no encontrado"));
 
         Double costoTotalCalculado = 0.0;
         List<CompraDetalle> detallesDeLaCompra = new ArrayList<>();
 
         for (ItemCompra itemDTO : compraRequest.getItems()) {
-            VariantePrenda variante = variantePrendaRepository.findById(itemDTO.getIdVariantePrenda())
-                    .orElseThrow(() -> new RuntimeException("Prenda no encontrada"));
+            VariantePrenda variante = variantePrendaRepository.findById(itemDTO.getIdVariantePrenda()).orElseThrow(() -> new RuntimeException("Prenda no encontrada"));
 
                 if (variante.getStock() < itemDTO.getCantidad()) {
                 throw new StockInsuficiente("Stock insuficiente para: " + variante.getPrenda().getNombre() + " Talle: " + variante.getTalle() + " Color: " + variante.getColor());

@@ -162,12 +162,7 @@ body {
     margin-left: 1rem;
     border: none;
     cursor: pointer;
-}
-
-.btn-login a{
-    text-decoration: none;
-    color: white;
-    font-weight: 500;
+        color: white ;
 }
 
 .d-flex .bi-cart {
@@ -607,4 +602,27 @@ body {
         width: 100% !important;
         height: 100% !important;
     }
+}
+
+/* estadisticas */
+.card {
+    border-radius: 0; 
+    border: 1px solid #000; 
+    transition: transform 0.3s ease;
+    color: var(--color-accent) ;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 4px 4px 0px rgba(0,0,0,0.1) !important;
+}
+
+.card-title {
+    font-family: 'Momo Trust Display', sans-serif; 
+    letter-spacing: 1px;
+}
+
+.display-4 {
+    font-family: "Bricolage Grotesque", sans-serif;
+    color: #000;
 }

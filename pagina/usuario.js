@@ -153,4 +153,42 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.removeItem('currentUser');
         window.location.href = 'login.html';
     });
+
+    fetch(apiBaseUrl + '/estadisticas/marcas')
+        .then(res => {
+            if (!res.ok) throw new Error('Error al cargar estadísticas');
+            return res.json();
+        })
+        .then(estadisticas => { 
+            const container = document.getElementById('marcasFavoritasContainer');
+            container.innerHTML = '';
+
+            const marcasArray = Object.entries(estadisticas);
+
+            if (marcasArray.length === 0) {
+                container.innerHTML = '<div class="col-12 text-center py-4 text-muted">Aún no tienes estadísticas de compras.</div>';
+                return;
+            }
+
+            marcasArray.sort((a, b) => b[1] - a[1]);
+
+            marcasArray.forEach(([marca, cantidad]) => {
+                const cardHtml = `
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card border-dark h-100 text-center p-3 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-uppercase mb-3" style="color: #2F4550;">${marca}</h5>
+                            <div class="display-4 fw-bold mb-2">${cantidad}</div>
+                            <p class="card-text text-muted small text-uppercase">prendas compradas</p>
+                        </div>
+                    </div>
+                </div>`;
+                container.innerHTML += cardHtml;
+            });
+        })
+        .catch(err => {
+            console.error("Error estadísticas:", err);
+            document.getElementById('marcasFavoritasContainer').innerHTML = 
+                '<div class="col-12 text-center text-danger">No se pudieron cargar las estadísticas.</div>';
+        });
 });

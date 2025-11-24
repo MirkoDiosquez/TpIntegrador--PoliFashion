@@ -8,9 +8,12 @@ import com.example.DHT.repository.CompraDetalleRepository;
 import com.example.DHT.repository.PrendaRepository;
 import com.example.DHT.repository.VariantePrendaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.PageRequest;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Comparator;
@@ -100,7 +103,9 @@ public class PrendaService {
     }
 
     public List<PrendaDTO> getUltimasPrendas() {
-        return prendaRepository.findTop3ByOrderByIdPrendaDesc().stream()
+        Pageable pageable = PageRequest.of(0, 3);
+        return prendaRepository.findTop3ByOrderByIdPrendaDesc(pageable)
+                .stream()
                 .map(PrendaDTO::new)
                 .collect(Collectors.toList());
     }
