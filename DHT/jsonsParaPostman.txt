@@ -61,6 +61,9 @@ http://localhost:8080/api/devoluciones
 
 /* ej C */
 http://localhost:8080/api/clientes/12345678/historial --> existe
+/* ej H */
+http://localhost:8080/api/clientes/34567890/estadisticas/marcas
+
 http://localhost:8080/api/clientes/12345677/historial --> no existe cliente
 
 
@@ -175,9 +178,17 @@ http://localhost:8080/api/clientes/10000001/puntos
     "puntos": 0
 }
 
-
 /* ej H */
 http://localhost:8080/api/clientes/34567890/estadisticas/marcas
+{
+    "Nike": 9,
+    "King of the Kongo": 1,
+    "VCP": 7,
+    "Vancouver": 1,
+    "Adidas": 4,
+    "Kiech": 3,
+    "Puma": 2
+}
 
 /* ej extra de registro */
 {
@@ -196,3 +207,4 @@ http://localhost:8080/api/clientes/34567890/estadisticas/marcas
     "email": "juan@correo.com",
     "contrasenia": "mi_password_123"
 }
+
